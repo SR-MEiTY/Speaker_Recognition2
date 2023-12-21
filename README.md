@@ -13,4 +13,4 @@ Instructions to run the web app using Flask Server.
     4. pydub
     5. ffmpeg
     6. numpy 
-5. Open the web app folder from the command prompt/terminal, activate the a environment, if not activated and run the server using 'python app.py'
+5. Open the web app folder from the command prompt/terminal, activate the a environment, if not activated and run the server using 'python backend.py'
