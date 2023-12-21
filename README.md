@@ -1,5 +1,5 @@
 # Speaker_Recognition
-Speaker Recognition System
+Speaker Recognition System with GMM-HMM and WAVLM models.
 
 Instructions to run the web app using Flask Server.
 
@@ -14,4 +14,10 @@ Instructions to run the web app using Flask Server.
     5. ffmpeg
     6. numpy
 5. Install dependencies from requirements.txt and any other dependencies shown while running the backend.py
-6. Open the web app folder from the command prompt/terminal, activate the a environment, if not activated and run the server using 'python backend.py'
+7. Download the trained model from following link and put it in the root folder:
+   https://drive.google.com/file/d/109gOlv0FqV43eE7dr_1fpVIEFxtIqPy3/view?usp=drive_link
+8. Open the web app folder from the command prompt/terminal, activate the a environment, if not activated and run the server using 'python backend.py'
+9. This will run the web app.
+10. Open the webapp in the web browser using IP address and Port Number displayed on the terminal. (e.g. https://192.168.1.150:8888)
+11. Now you will be able to see a web application in the web browser and you can do registration and verification of the speaker.
+
