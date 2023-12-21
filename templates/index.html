@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"/>
+		<meta name="mobile-web-app-capable" content="yes"/>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia|DynaPuff">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@1,500&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz:ital,wght@1,500&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300&display=swap" rel="stylesheet">
+		<link href="{{url_for('static', filename='/css/base_style.css')}}" type="text/css" rel="stylesheet">
+		<link href="{{url_for('static', filename='/images/i-SpeakR_icon2.ico')}}" type="image/x-icon" rel="icon">
+		<title>i-SpeakR</title>
+
+    	<script type="text/javascript" src="static/js/core.js"></script>
+	</head>
+
+	<body lang="en-IN" id="body_tag">
+		
+		<div class="accessibility_pane">
+			<div class="light_mode hyperlink" id="light_mode" onclick="change_page_theme('light')" style="display: none;" title="Change to light mode"></div>
+			<div class="dark_mode hyperlink" id="dark_mode" onclick="change_page_theme('dark')" title="Change to dark mode"></div>
+		</div>
+		
+		<div id="light_title_pane">
+			<div class="flex-container title_pane" id="light_title_subpane">
+				<div class="nltm_logo">
+					<a href="https://www.meity.gov.in/national-language-translation-mission">
+						<img src="{{url_for('static', filename='/images/gov-logo-1.png')}}" alt="MeitY, GoI, logo" title="MeitY, GoI">
+					</a>
+				</div>
+				<div class="ispeakr_logo">
+					<a href="https://sr-meity.github.io/Manuals/" style="position: relative; width: 100%;">
+						<img src="{{url_for('static', filename='/images/i-SpeakR_icon2.bmp')}}" alt="i-SpeakR logo" title="i-SpeakR">
+					</a>
+				</div>
+			</div>
+		</div>
+
+
+		<div id="dark_title_pane" style="display: none;">
+			<div class="flex-container title_pane" id="dark_title_subpane">
+				<div class="nltm_logo">
+					<a href="https://www.meity.gov.in/national-language-translation-mission">
+						<img src="{{url_for('static', filename='/images/gov-logo-1_invert.png')}}" alt="MeitY, GoI, logo" title="MeitY, GoI">
+					</a>
+				</div>
+				<div class="ispeakr_logo">
+					<a href="https://sr-meity.github.io/Manuals/" style="position: relative; width: 100%;">
+						<img src="{{url_for('static', filename='/images/i-SpeakR_icon2_invert2.png')}}" alt="i-SpeakR logo" title="i-SpeakR">
+					</a>
+				</div>
+			</div>
+		</div>
+
+		<div class="mobile_view">
+			<div class="open_menu" id="open_menu" onclick="toggle_menu()">
+				&#8803;
+				<input type="hidden" value="closed" id="menu_status"/>
+			</div>
+		</div>
+
+		<div class="flex-container menu_pane" id="menu_pane">
+			<div class="menu_items hyperlink selected_menu">
+				Home
+			</div>
+			&emsp;
+			<div class="menu_items hyperlink" onclick="window.open('about.html', '_self');">
+				About
+			</div>
+			&emsp;
+			<div class="menu_items hyperlink" onclick="window.open('resources.html', '_self');">
+				Resources
+			</div>
+			&emsp;
+			<div class="menu_items hyperlink" onclick="window.open('I-MSV.html', '_self');">
+				I-MSV Challenge
+			</div>
+			&emsp;
+			<div class="menu_items hyperlink" onclick="window.open('demo.html', '_self');">
+				GMM Demo
+			</div>
+			&emsp;
+            <div class="menu_items hyperlink" onclick="window.open('VOA.html', '_self');">
+				VOA Demo
+			</div>
+			&emsp;
+			<div class="menu_items hyperlink" onclick="window.open('hands_on.html', '_self');">
+				Hands-on
+			</div>
+&emsp;
+			<div class="menu_items hyperlink" onclick="window.open('demo_wavlm.html', '_self');">
+				Wavlm Demo
+			</div>
+			<div class="empty_menu_item">
+			</div>
+		</div>
+
+		<div class="flex-container dashboard">
+
+			<div class="content_space">				
+				<!--<div class="heading1">Home</div>-->
+				<div class="subsection">
+					<div class="text">	
+						This web page provides a compilation of various user manuals and help materials required in the development of the Indic Speaker Recognition project.
+
+						<br/><br/>
+						<p>Click the <font style="font-weight:bold;">Demo</font> tab to explore a demonstration of the Indic Speaker Recognition System.</p>
+
+						<br/><br/>
+						<p>In the upcoming <b>25<sup>th</sup> Conference of the Oriental COCOSDA</b>, a Speaker Recognition challenge has been organized by the team. Visit: <a href="https://vlsp.org.vn/cocosda2022/msv2022" target="_blank">Click here</a></p>
+
+						<br/>
+					</div>
+				</div>
+
+				<div class="heading2">Consortium Members</div>					
+				<div class="subsection logo_pane">
+					<div onclick="window.open('https://www.cdac.in/index.aspx?id=kolkata', '_blank');" class="hyperlink logo_size">
+						<img src="{{url_for('static', filename='/images/CDAC.jpeg')}}" alt="C-DAC Centre @ Kolkata" title="C-DAC Centre @ Kolkata" class="logo_shadow">
+					</div>
+					
+					<div onclick="window.open('https://iiitdwd.ac.in/', '_blank');" class="hyperlink logo_size">
+						<img src="{{url_for('static', filename='/images/IIIT_Dharwad.png')}}" alt="Indian Institute of Information Technology Dharwad, Karnataka" title="Indian Institute of Information Technology Dharwad, Karnataka" class="logo_shadow">
+					</div>
+
+					<div onclick="window.open('https://www.iitdh.ac.in/', '_blank');" class="hyperlink logo_size">
+						<img src="{{url_for('static', filename='/images/IIT_Dharwad.png')}}" alt="Indian Institute of Technology Dharwad, Karnataka" title="Indian Institute of Technology Dharwad, Karnataka" class="logo_shadow">
+					</div>
+
+					<div onclick="window.open('https://www.kletech.ac.in/', '_blank');" class="hyperlink logo_size">
+						<img src="{{url_for('static', filename='/images/KLE_Tech.png')}}" alt="KLE Technological University, Hubli, Karnataka" title="KLE Technological University, Hubli, Karnataka" class="logo_shadow">
+					</div>
+
+					<div onclick="window.open('https://www.kluniversity.in/', '_blank');" class="hyperlink logo_size">
+						<img src="{{url_for('static', filename='/images/KL_Univ.png')}}" alt="KL University Vijayawada, Andhra Pradesh" title="KL University Vijayawada, Andhra Pradesh" class="logo_shadow">
+					</div>
+
+					<div onclick="window.open('https://www.nitnagaland.ac.in/', '_blank');" class="hyperlink logo_size">
+						<img src="{{url_for('static', filename='/images/NIT_Nagaland.png')}}" alt="National Institute of Technology Nagaland" title="National Institute of Technology Nagaland" class="logo_shadow"/>
+					</div>
+
+					<div onclick="window.open('http://www.nitp.ac.in/php/home.php', '_blank');" class="hyperlink logo_size">
+						<img src="{{url_for('static', filename='/images/NIT_Patna.png')}}" alt="National Institute of Technology Patna" title="National Institute of Technology Patna" class="logo_shadow">
+					</div>
+				</div>
+
+			</div>
+
+
+		</div>
+
+
+		<div class="flex-container footer">
+			<div>© Copyright 2022. Designed and maintained by IIT Dharwad.</div>
+		</div>
+
+	</body>
+
+</html>

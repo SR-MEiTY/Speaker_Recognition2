@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"/>
+		<meta name="mobile-web-app-capable" content="yes"/>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia|DynaPuff">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@1,500&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz:ital,wght@1,500&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300&display=swap" rel="stylesheet">
+		<link href="{{url_for('static', filename='/css/base_style.css')}}" type="text/css" rel="stylesheet">
+		<link href="{{url_for('static', filename='/css/userDetails.css')}}" type="text/css" rel="stylesheet">
+		<link href="{{url_for('static', filename='/images/i-SpeakR_icon2.ico')}}" type="image/x-icon" rel="icon">
+    	<script type="text/javascript" src="static/js/stickyNav.js"></script>
+    	<script type="text/javascript" src="static/js/getAudioDevices.js"></script>
+	<script type="text/javascript" src="static/js/languageSelector.js"></script>
+
+		<title>i-SpeakR - Speaker Verification</title>
+
+		<script type="text/javascript">
+			function show_msg(){
+				document.getElementById('forgot_speaker_id').style.visibility='visible';
+			}
+
+			function hide_msg(){
+				document.getElementById('forgot_speaker_id').style.visibility='hidden';
+			}
+
+			function start_recording(){
+				if(document.getElementById('speakerID').value == '')
+					alert('Please enter the speakerID');
+				else{
+					vstart();
+					timer();	
+				}
+			}
+
+			function stop_recording(){
+				vstop();
+			}
+
+			function show_recording_menu(){
+				if (document.getElementById('speakerID').value==''){
+					window.alert('Enter speaker ID');
+					return;
+				}
+				document.getElementById('recording_menu').style.visibility='visible';
+			}
+
+			function hide_recording_menu(){
+				document.getElementById('recording_menu').style.visibility='hidden';
+			}
+		</script>
+    	<script type="text/javascript" src="static/js/core.js"></script>
+	</head>
+
+	<body lang="en-IN" id="body_tag">
+		
+		<div class="accessibility_pane">
+			<div class="light_mode hyperlink" id="light_mode" onclick="change_page_theme('light')" style="display: none;" title="Change to light mode"></div>
+			<div class="dark_mode hyperlink" id="dark_mode" onclick="change_page_theme('dark')" title="Change to dark mode"></div>
+		</div>
+		
+		<div id="light_title_pane">
+			<div class="flex-container title_pane" id="light_title_subpane">
+				<div class="nltm_logo">
+					<a href="https://www.meity.gov.in/national-language-translation-mission">
+						<img src="{{url_for('static', filename='/images/gov-logo-1.png')}}" alt="MeitY, GoI, logo" title="MeitY, GoI">
+					</a>
+				</div>
+				<div class="ispeakr_logo">
+					<a href="https://sr-meity.github.io/Manuals/" style="position: relative; width: 100%;">
+						<img src="{{url_for('static', filename='/images/i-SpeakR_icon2.bmp')}}" alt="i-SpeakR logo" title="i-SpeakR">
+					</a>
+				</div>
+			</div>
+		</div>
+
+
+		<div id="dark_title_pane" style="display: none;">
+			<div class="flex-container title_pane" id="dark_title_subpane">
+				<div class="nltm_logo">
+					<a href="https://www.meity.gov.in/national-language-translation-mission">
+						<img src="{{url_for('static', filename='/images/gov-logo-1_invert.png')}}" alt="MeitY, GoI, logo" title="MeitY, GoI">
+					</a>
+				</div>
+				<div class="ispeakr_logo">
+					<a href="https://sr-meity.github.io/Manuals/" style="position: relative; width: 100%;">
+						<img src="{{url_for('static', filename='/images/i-SpeakR_icon2_invert2.png')}}" alt="i-SpeakR logo" title="i-SpeakR">
+					</a>
+				</div>
+			</div>
+		</div>
+
+		<div class="mobile_view">
+			<div class="open_menu" id="open_menu" onclick="toggle_menu()">
+				&#8803;
+				<input type="hidden" value="closed" id="menu_status"/>
+			</div>
+		</div>
+
+		<div class="flex-container menu_pane" id="menu_pane">
+			<div class="menu_items hyperlink" onclick="window.open('index.html', '_self');">
+				Home
+			</div>
+			&emsp;
+			<div class="menu_items hyperlink" onclick="window.open('about.html', '_self');">
+				About
+			</div>
+			&emsp;
+			<div class="menu_items hyperlink" onclick="window.open('resources.html', '_self');">
+				Resources
+			</div>
+			&emsp;
+			<div class="menu_items hyperlink" onclick="window.open('I-MSV.html', '_self');">
+				I-MSV Challenge
+			</div>
+			&emsp;
+			<div class="menu_items hyperlink" onclick="window.open('demo.html', '_self');">
+				GMM Demo
+			</div>
+			&emsp;
+            <div class="menu_items hyperlink" onclick="window.open('VOA.html', '_self');">
+				VOA Demo
+			</div>
+			&emsp;
+			<div class="menu_items hyperlink" onclick="window.open('hands_on.html', '_self');">
+				Hands-on
+			</div>
+			&emsp;
+			<div class="menu_items hyperlink selected_menu" onclick="window.open('demo_wavlm.html', '_self');">
+				Wavlm Demo
+			</div>
+			<div class="empty_menu_item">
+			</div>
+		</div>
+
+		<div class="flex-container dashboard">
+
+			<div class="demo_page_heading">
+				<div class="heading1">DEMO</div>
+				<div class="heading2">i-SpeakR - Testing Module</div>
+				<img src="{{url_for('static', filename='/images/home_icon.png')}}" onclick="window.open('demo_wavlm.html', '_self');" width="30px" class="hyperlink" title="Goto DEMO homepage"/>
+			</div>
+
+
+			<form class="audioForm" name="audioForm" id="audioForm">
+			<div class="details_tile">
+				<input type="text" name="speakerID" class="speakerID" id="speakerID" placeholder="Speaker ID" required/></div>
+				<div class="forgot_speaker_id" id="forgot_speaker_id">
+					<p class="heading2">Format of speaker ID</p>A speaker ID is generated using combinmation of first letter of First Name, first letter of your Last Name, first letter of your Gender and age. <b>For Example, if you have entered speaker details as 'Ganesh' 'Bhosale' 'Male' '25' then your speaker id is 'GBM25'</b>
+				</div>
+
+				<div class="start_recording_switch hyperlink" onclick="show_recording_menu();">
+					Start recording
+				</div>
+			</div>
+
+			<div class="recording_menu" id="recording_menu">
+				<form class="audioForm" name="audioForm" id="audioForm">
+					<div class="recording_buttons">
+						<div class="close_menu hyperlink" onclick="hide_recording_menu();">&#10060;</div>
+						<div class="heading2">Record audio</div>
+						<input type="button" class="button record_button" name="recordButton" id="recordButton" value="START" onclick="start_recording();">
+						<input type="button" class="button stop_button" name="stopRecording" id="stopRecording" value="STOP" onclick="stop_recording()">
+					</div>
+				</form>
+				<p class="timer" id="timer" name="timer">Not Recording.</p>
+
+				<br/>
+				
+				<div class="trow">
+					<label for="reg-lang">Select a Language for Verification:</label>
+					<select name="reg-lang" id="reg-lang" class="reg-lang" onchange="langSelect()">
+						<option disabled selected>--Select a language--</option>
+						<option value="Bengali">Bengali</option>
+						<option value="English">English</option>
+						<option value="Hindi">Hindi</option>
+						<option value="Kannada">Kannada</option>
+						<option value="Marathi">Marathi</option>
+						<option value="Telugu">Telugu</option>
+					</select> 
+				</div>
+
+				<section class="convertedText" id="convertedText" hidden>
+					<h4 style="text-align: center;">Read the following Text</h4>
+						The Indian Space Research Organisation is the national space agency of India. It operates as the primary research and 							development arm of the Department of Space (DoS)
+				</section>
+
+				<section class="bengali-lang" id="bengali-lang" hidden>
+					<h4 style="text-align: center;">Read the following Text/নিচের অংশটি পর.</h4>
+						মহাকাশ গবেষণার প্রয়োজনীয়তা স্বীকার করে বিজ্ঞানী বিক্রম সারাভাইয়ের অনুরোধে ১৯৬২ সালে জওহরলাল নেহেরু পরমাণু শক্তি বিভাগের (ডিএই) অধীনে ইন্ডিয়ান ন্যাশনাল 							কমিটি ফর স্পেস রিসার্চ (ইনকোসপার) প্রতিষ্ঠা করেন। ডিএই-এর মধ্যে ইনকোসপার বিকশিত হয়ে ১৯৬৯ সালে ইসরো হয়ে ওঠে।
+				</section>
+				<section class="hindi-lang" id="hindi-lang" hidden>
+					<h4 style="text-align: center;">Read the following Text/निम्न पाठ पढें।</h4>
+						इसरो के वर्तमान निदेशक डॉ एस सोमनाथ हैं।आज भारत न सिर्फ अपने अंतरिक्ष संबंधी आवश्यकताओं की पूर्ति करने में सक्षम है बल्कि दुनिया के बहुत से देशों को अपनी अंतरिक्ष 						क्षमता से व्यापारिक और अन्य स्तरों पर सहयोग कर रहा है।
+				</section>
+				<section class="kannada-lang" id="kannada-lang" hidden>
+					<h4 style="text-align: center;">Read the following Text/ಕೆಳಗಿನ ಪಠ್ಯವನ್ನು ಓದಿ.</h4>
+					ಭಾರತ ಅಣುಶಕ್ತಿ ಇಲಾಖೆಯ ಅಡಿಯಲ್ಲಿ ಇಸ್ರೋ ಅನ್ನು ೧೯೬೯ ರಲ್ಲಿ ಸ್ಥಾಪಿಸಲಾಯಿತು. ೧೯೭೫ ರಲ್ಲಿ ಮೊದಲ ಭಾರತೀಯ ಉಪಗ್ರಹ ಆರ್ಯಭಟ ರಷ್ಯಾದ ರಾಕೆಟ್ ಒಂದರ 						ಮೂಲಕ ಕಕ್ಷೆಗೆ ಹಾರಿತು. ಉಪಗ್ರಹವೊಂದರ ಮೊದಲ ಭಾರತೀಯ ಉಡಾವಣೆ ೧೯೮೦ ರಲ್ಲಿ ನಡೆಯಿತು. 
+				</section>
+
+				<section class="marathi-lang" id="marathi-lang" hidden>
+					<h4 style="text-align: center;">Read the following Text/खालील मजकूर वाचा.</h4>
+						भारताची पृथ्वीपल्याडची पहिली मोहिम ही चांद्रयान १ होती. एक चांद्रयान, ज्याने चंद्राच्या कक्षेत ८ नोव्हेंबर इ.स.२००८ला यशस्वीरित्या प्रवेश केला. चांद्रयान १ पाठोपाठ 						इस्रो चांद्रयान २ आणि मंगळावर मानवरहित यान तसेच पृथ्वीजवळच्या वस्तू जसे, अवकाश अशनी, धूमकेतू यासाठी मोहिम राबवू इच्छिते. 
+				</section>
+
+				<section class="telugu-lang" id="telugu-lang" hidden>
+					<h4 style="text-align: center;">Read the following Text/కింది వచనాన్ని చదవండి.</h4>
+						విక్రం సారాభాయ్ను భారత అంతరిక్ష పరిశోధనా వ్యవస్థకు పితామహుడిగా అభివర్ణిస్తారు. 1957లో రష్యా మొట్టమొదటి శాటిలైట్ అయిన స్పుత్నిక్‌ను ప్రయోగించినపుడు శాటిలైట్ యొక్క 						ఆవశ్యకతను అప్పటి ప్రధాన మంత్రి అయిన నెహ్రూకు వివరించి, 1962లో, భారత అణుశక్తి వ్యవస్థ పితామహుడయిన హోమీ భాభా పర్యవేక్షణలో ఇండియన్ నేషనల్ కమిటీ ఫర్ స్పేస్ 							రీసెర్చ్  ను ఏర్పరచారు. 
+				</section>
+				<!--<div class="prompt"><b>Example text prompt:</b> &nbsp; Indians are the citizens and nationals of the Republic of India. According to the 2011 Indian national census, the population of India stood at over 1.2 billion people, making it the world's second-most populous country that contains 17.50 percent of the global population. In India, the term "Indian" refers to nationality, rather than a particular ethnicity or language.</div> -->
+
+				<p class="output" id="output" name="output">Result: </p>
+			</div>
+			</form>
+			
+			<br/><br/><br/><br/><br/><br/><br/><br/>
+
+		</div>
+
+
+		<div class="flex-container footer">
+			<div>© Copyright 2022. Designed and maintained by IIT Dharwad & IIIT Dharwad.</div>
+		</div>
+
+	</body>
+</html>

@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!--Page Title-->
+	<title>Speaker Recognition System</title>
+	<!--Links-->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="static/css/index1.css">
+	<link rel="stylesheet" type="text/css" href="static/css/footer.css">
+	<link rel="stylesheet" type="text/css" href="static/css/carousel.css">
+	<link rel="stylesheet" type="text/css" href="static/css/speech2text.css">
+	
+	<script type="text/javascript" src="static/js/stickyNav.js"></script>
+	<script type="text/javascript" src="static/js/getAudioDevices.js"></script>
+	<script type="text/javascript" src="static/js/languageSelector.js"></script>
+<!-- 	<script type="text/javascript" src="static/js/sendText.js"></script>
+ -->
+	<style type="text/css">
+		.stickyNav {
+		  position: fixed;
+		  top: 0;
+		  width: 100%;
+		}
+	</style>
+</head>
+<body>
+	<!--Page Header-->
+	<header class="header">
+		<p class="title">Development and Deployment of Scalable Speaker Recognition Technology in Different Applications</p>
+	</header>
+
+	<!--Page Navigation Links-->
+	<nav class="navbar" id="navbar" name="navbar">
+		<a href="/">Home</a>
+  		<!-- <a href="registration">User Registration</a>
+  		<a href="training">Training</a>
+  		<a href="testing">Testing</a>
+  		<a href="contactus">Contact us</a> -->
+  	</nav>
+	
+	<!--Section for Data-->
+	<section class="row">
+		<!--Page Left Column-->
+		<aside class="leftcol">
+			<h3></h3>
+		</aside>
+
+		<!--Page Main Cntent-->
+		<main class="main">
+			<h2 class="mainTitle">Speaker Recognition System - Testing Module</h2>
+			<section class="audioStream">
+				<form class="audioForm" name="audioForm" id="audioForm">
+					<label for="speakerID">Enter the Speaker ID: </label>
+					<input type="text" name="speakerID" class="speakerID" id="speakerID" required>
+					<br>
+					<details>
+						<summary class="forgotID">Forgot your Speaker ID. Click Here!</summary>
+						<p class="idInstruct">
+							A speaker ID is generated using combinmation of first letter of First Name, first letter of your Last Name,
+							first letter of your Gender and age. <br>
+							<b>For Example, if you have entered speaker details as 'Ganesh' 'Bhosale' 'Male' '25' then your speaker id is 'GBM25'</b>
+						</p>
+					</details>
+					<br>
+					<div class="trow">
+							<label for="reg-lang">Select a Language for Verification:</label>
+							<select name="reg-lang" id="reg-lang" class="reg-lang" onchange="langSelect()">
+								<option disabled selected>--Select a language--</option>
+								<option value="Bengali">Bengali</option>
+								<option value="English">English</option>
+								<option value="Hindi">Hindi</option>
+								<option value="Kannada">Kannada</option>
+								<option value="Marathi">Marathi</option>
+								<option value="Telugu">Telugu</option>
+							</select> 
+						</div>
+
+					<section class="convertedText" id="convertedText" hidden>
+						<h4 style="text-align: center;">Read the following Text</h4>
+						he Indian Space Research Organisation (ISRO /ˈɪsroʊ/)[a] is the national space agency of India. It operates as the primary research and development arm of the Department of Space (DoS), which is directly overseen by the Prime Minister of India, while the Chairman of ISRO also acts as the executive of DoS.
+					</section>
+
+					<section class="bengali-lang" id="bengali-lang" hidden>
+						<h4 style="text-align: center;">Read the following Text/নিচের অংশটি পর.</h4>
+						মহাকাশ গবেষণার প্রয়োজনীয়তা স্বীকার করে বিজ্ঞানী বিক্রম সারাভাইয়ের অনুরোধে ১৯৬২ সালে জওহরলাল নেহেরু পরমাণু শক্তি বিভাগের (ডিএই) অধীনে ইন্ডিয়ান ন্যাশনাল কমিটি ফর স্পেস রিসার্চ (ইনকোসপার) প্রতিষ্ঠা করেন। ডিএই-এর মধ্যে ইনকোসপার বিকশিত হয়ে ১৯৬৯ সালে ইসরো হয়ে ওঠে।[৯] ভারত সরকার ১৯৭২ সালে একটি মহাকাশ কমিশন ও মহাকাশ বিভাগ (ডস) গঠন করে এবং ইসরোকে ডস-এর অধীনস্থ করা হয়। ইসরোর প্রতিষ্ঠা ভারতে মহাকাশ গবেষণা কার্যক্রমকে প্রাতিষ্ঠানিক রূপ প্রদান করে।
+					</section>
+					<section class="hindi-lang" id="hindi-lang" hidden>
+						<h4 style="text-align: center;">Read the following Text/निम्न पाठ पढें।</h4>
+						इसरो के वर्तमान निदेशक डॉ एस सोमनाथ हैं।आज भारत न सिर्फ अपने अंतरिक्ष संबंधी आवश्यकताओं की पूर्ति करने में सक्षम है बल्कि दुनिया के बहुत से देशों को अपनी अंतरिक्ष क्षमता से व्यापारिक और अन्य स्तरों पर सहयोग कर रहा है। इसरो को शांति, निरस्त्रीकरण और विकास के लिए साल 2014 के इंदिरा गांधी पुरस्कार से सम्मानित किया गया।
+					</section>
+
+					<section class="kannada-lang" id="kannada-lang" hidden>
+						<h4 style="text-align: center;">Read the following Text/ಕೆಳಗಿನ ಪಠ್ಯವನ್ನು ಓದಿ.</h4>
+						ಭಾರತ ಅಣುಶಕ್ತಿ ಇಲಾಖೆಯ ಅಡಿಯಲ್ಲಿ ಇಸ್ರೋ ಅನ್ನು ೧೯೬೯ ರಲ್ಲಿ ಸ್ಥಾಪಿಸಲಾಯಿತು. ೧೯೭೫ ರಲ್ಲಿ ಮೊದಲ ಭಾರತೀಯ ಉಪಗ್ರಹ ಆರ್ಯಭಟ ರಷ್ಯಾದ ರಾಕೆಟ್ ಒಂದರ ಮೂಲಕ ಕಕ್ಷೆಗೆ ಹಾರಿತು. ಉಪಗ್ರಹವೊಂದರ ಮೊದಲ ಭಾರತೀಯ ಉಡಾವಣೆ ೧೯೮೦ ರಲ್ಲಿ ನಡೆಯಿತು. 
+					</section>
+
+					<section class="marathi-lang" id="marathi-lang" hidden>
+						<h4 style="text-align: center;">Read the following Text/खालील मजकूर वाचा.</h4>
+						भारताची पृथ्वीपल्याडची पहिली मोहिम ही चांद्रयान १ होती. एक चांद्रयान, ज्याने चंद्राच्या कक्षेत ८ नोव्हेंबर इ.स.२००८ला यशस्वीरित्या प्रवेश केला. चांद्रयान १ पाठोपाठ इस्रो चांद्रयान २ आणि मंगळावर मानवरहित यान तसेच पृथ्वीजवळच्या वस्तू जसे, अवकाश अशनी, धूमकेतू यासाठी मोहिम राबवू इच्छिते. 
+					</section>
+
+					<section class="telugu-lang" id="telugu-lang" hidden>
+						<h4 style="text-align: center;">Read the following Text/కింది వచనాన్ని చదవండి.</h4>
+						విక్రం సారాభాయ్ను భారత అంతరిక్ష పరిశోధనా వ్యవస్థకు పితామహుడిగా అభివర్ణిస్తారు. 1957లో రష్యా మొట్టమొదటి శాటిలైట్ అయిన స్పుత్నిక్‌ను ప్రయోగించినపుడు శాటిలైట్ యొక్క ఆవశ్యకతను అప్పటి ప్రధాన మంత్రి అయిన నెహ్రూకు వివరించి, 1962లో, భారత అణుశక్తి వ్యవస్థ పితామహుడయిన హోమీ భాభా పర్యవేక్షణలో ఇండియన్ నేషనల్ కమిటీ ఫర్ స్పేస్ రీసెర్చ్ (Indian National Committee for Space Research - INCOSPAR) ను ఏర్పరచాడు. 
+					</section>
+					<br>
+					<input type="button" class="recordButton" name="recordButton" id="recordButton" value="START">
+					<input type="button" name="stopRecording" class="stopRecording" id="stopRecording" value="STOP">
+					<p class="timer" id="timer" name="timer">Not Recording.</p>
+					<!-- {% if output %} -->
+						<!-- <p class="output" id="output" name="output">Result: {{output}}</p> -->
+    					<!-- <p class=error><strong>Error:</strong> {{ error }} -->
+  					<!-- {% endif %} -->
+					<p class="output" id="output" name="output">Result: </p>
+				</form>
+			</section>
+			<section class="convertedText">
+				
+			</section>
+		</main>
+
+		<!--Page Right Column-->
+		<aside class="rightcol">
+			<h3></h3>
+		</aside>
+	</section>
+
+	<!--Page Footer-->
+	<!-- <footer class="footer">
+		<aside class="footcol">
+			<h3>About Us</h3>
+			<p>IIIT, Dharwad</p>
+			<a href="contactus">Contact us</a>
+		</aside>
+		<aside class="footcol">
+			<h4>Related Links</h4>
+			<a href="https://iiitdwd.ac.in/" target="_blank">IIIT Dharwad</a> <br>
+			<a href="https://www.aicte-india.org/" target="_blank">AICTE</a> <br>
+			<a href="https://www.ugc.ac.in/" target="_blank">UGC</a> 
+		</aside>
+		<aside class="footcol">
+			<h4>Follow IIIT Dharwad</h4>
+			<a href="https://www.facebook.com/" target="_blank">Facebook</a> <br>
+			<a href="https://twitter.com/" target="_blank">Twitter</a>
+			<br>
+			<a href="https://www.instagram.com/" target="_blank">Instagram</a> 
+		</aside>
+		<section align="Center">
+			<i><b>All rights are reserved to IIIT Dharwad</b></i>
+		</section>
+	</footer> -->
+</body>
+<script type="text/javascript">
+	recordButton.addEventListener('click', (ev) => {
+		if(speakerID.value == '')
+			alert('Please enter the speakerID');
+		else{
+			start();
+			timer();	
+		}
+	});
+
+	stopRecording.addEventListener('click', (ev) => {
+		stop();
+	})
+
+	/*Function to start the audio recording for verification and send the small
+  chunks to the server for processing.
+*/
+
+	function start()
+	{
+		if (!navigator.mediaDevices || !navigator.mediaDevices.enumerateDevices)
+		{
+		  console.log("enumerateDevices() not supported.");
+		  return;
+		}
+		else
+		{
+			navigator.mediaDevices.getUserMedia({
+				audio: true
+			}).then(async function(mediaStreamObj)
+			{
+				mediaRecorder= new MediaRecorder(mediaStreamObj);
+				if(mediaRecorder.state == 'inactive')
+				{
+	    		mediaRecorder.start();
+		       	console.log('Recording State Now: '+ mediaRecorder.state)
+		       	recordButton.disabled = true;
+		       	recordButton.style.backgroundColor = "grey";
+				recordButton.style.border = 'grey';
+
+		       	stopRecording.disabled = false;
+		       	stopRecording.style.backgroundColor = "black";
+				stopRecording.style.border = 'black';
+	       	
+	       		mediaRecorder.ondataavailable = function(ev)
+	  			{
+					chunks.push(ev.data);
+					console.log('Displaying Chunks: ')
+					console.log(chunks);
+					blob = new Blob(chunks,
+					{
+						'type':'audio/wav',
+						'codecs': 'opus'
+					});
+	      			console.log('Sending the recorded stream to the server: ')
+			      	chunks = [];
+					//audioURL = window.URL.createObjectURL(blob);		            
+					// audioSource.src = audioURL;
+					// audioSource.preload = 'none';
+					let fileName = 'recordedFile';
+					let sid = document.getElementById('speakerID').value;
+
+					//Upload to the directory
+					var audioData = new FormData();
+					request = new XMLHttpRequest();
+					audioData.append('content-type', 'multipart/form-data');
+					audioData.append('audioChunk', blob, fileName+'.wav');
+					audioData.append('sid', sid);
+					request.onreadystatechange = function(){
+						// if(request.readyState === 4) {
+							console.log(request.response)
+							if(request.response == "1") {
+								output.innerHTML = 'The speaker is recognized successfully!!!'
+								output.style.color = 'green'
+								output.style.font = '15px Arial, sans-serif'
+								output.style.fontWeight = 'bold'
+							}
+							else if (request.response == "0"){
+								output.innerHTML = 'The speaker does not recognized. Please try again...'
+								output.style.color = 'red'
+								output.style.font = '15px Arial, sans-serif'
+								output.style.fontWeight = 'bold'
+							}
+							else if(request.response == "-1"){
+								alert('The speaker does not exist. Register First and then try...')
+								output.innerHTML = 'The speaker does not exist. Register First and then try...'
+								output.style.color = 'red'
+								output.style.font = '15px Arial, sans-serif'
+								output.style.fontWeight = 'bold'
+							}
+							else {
+								output.innerHTML = 'Unable to process the request. Please reolad the page and try again...'
+								output.style.color = 'red'
+								output.style.font = '15px Arial, sans-serif'
+								output.style.fontWeight = 'bold'
+							}
+						// }
+					}
+					request.open('post', '/uploadVVAudio');
+					request.send(audioData);
+					console.log('Audio data sent to the server for processing.');
+	    		}
+	    	}
+		else
+		{
+			console.log('Media Recorder state is Inactive. Please enable the Microphone to allow browser to access the micrphone.');
+		  	alert('Please allow your browser to access the microphone...')
+		}
+		})
+		.catch(function(err) {
+			  console.log(err.name + ": " + err.message);
+		});
+		}
+	}
+
+	/*Function to stop the verification audio recording*/
+	function stop()
+	{
+		recordButton.disabled = false;
+		recordButton.style.backgroundColor = "black";
+		recordButton.style.border = 'black';
+
+	  stopRecording.disabled = true;
+		stopRecording.style.backgroundColor = "grey";
+		stopRecording.style.border = 'grey';
+
+		clearInterval(ticker);
+		timerElement.innerHTML = "Recording is stopped. Not Recording..."
+
+
+		if(mediaRecorder.state != 'inactive'){
+			mediaRecorder.stop();
+		}
+	  console.log('Recording State Now: '+ mediaRecorder.state)
+	}
+</script>
+</html>

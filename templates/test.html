@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"/>
+		<meta name="mobile-web-app-capable" content="yes"/>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia|DynaPuff">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@1,500&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz:ital,wght@1,500&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300&display=swap" rel="stylesheet">
+		<link href="{{url_for('static', filename='/css/base_style.css')}}" type="text/css" rel="stylesheet">
+		<link href="{{url_for('static', filename='/css/userDetails.css')}}" type="text/css" rel="stylesheet">
+		<link href="{{url_for('static', filename='/css/VOA_verification.css')}}" type="text/css" rel="stylesheet">
+		<link href="{{url_for('static', filename='/images/i-SpeakR_icon2.ico')}}" type="image/x-icon" rel="icon">
+    	
+		<script type="text/javascript" src="static/js/stickyNav.js"></script>
+    	<script type="text/javascript" src="static/js/getAudioDevices.js"></script>
+
+		<title>i-SpeakR - Speaker Verification</title>
+
+		<!-- <script type="text/javascript">
+			function show_msg(){
+				document.getElementById('forgot_speaker_id').style.visibility='visible';
+			}
+
+			function hide_msg(){
+				document.getElementById('forgot_speaker_id').style.visibility='hidden';
+			}
+
+			function start_recording(){
+				if(document.getElementById('speakerID').value == '')
+					alert('Please enter the speakerID');
+				else{
+					vstart();
+					timer();	
+				}
+			}
+
+			function stop_recording(){
+				vstop();
+			}
+
+			function show_recording_menu(){
+				if (document.getElementById('speakerID').value==''){
+					window.alert('Enter speaker ID');
+					return;
+				}
+				document.getElementById('recording_menu').style.visibility='visible';
+			}
+
+			function hide_recording_menu(){
+				document.getElementById('recording_menu').style.visibility='hidden';
+			}
+		</script> -->
+    	<script type="text/javascript" src="static/js/core.js"></script>
+	</head>
+
+	<body lang="en-IN" id="body_tag">
+		
+		<div class="accessibility_pane">
+			<div class="light_mode hyperlink" id="light_mode" onclick="change_page_theme('light')" style="display: none;" title="Change to light mode"></div>
+			<div class="dark_mode hyperlink" id="dark_mode" onclick="change_page_theme('dark')" title="Change to dark mode"></div>
+		</div>
+		
+		<div id="light_title_pane">
+			<div class="flex-container title_pane" id="light_title_subpane">
+				<div class="nltm_logo">
+					<a href="https://www.meity.gov.in/national-language-translation-mission">
+						<img src="{{url_for('static', filename='/images/gov-logo-1.png')}}" alt="MeitY, GoI, logo" title="MeitY, GoI">
+					</a>
+				</div>
+				<div class="ispeakr_logo">
+					<a href="https://sr-meity.github.io/Manuals/" style="position: relative; width: 100%;">
+						<img src="{{url_for('static', filename='/images/i-SpeakR_icon2.bmp')}}" alt="i-SpeakR logo" title="i-SpeakR">
+					</a>
+				</div>
+			</div>
+		</div>
+
+
+		<div id="dark_title_pane" style="display: none;">
+			<div class="flex-container title_pane" id="dark_title_subpane">
+				<div class="nltm_logo">
+					<a href="https://www.meity.gov.in/national-language-translation-mission">
+						<img src="{{url_for('static', filename='/images/gov-logo-1_invert.png')}}" alt="MeitY, GoI, logo" title="MeitY, GoI">
+					</a>
+				</div>
+				<div class="ispeakr_logo">
+					<a href="https://sr-meity.github.io/Manuals/" style="position: relative; width: 100%;">
+						<img src="{{url_for('static', filename='/images/i-SpeakR_icon2_invert2.png')}}" alt="i-SpeakR logo" title="i-SpeakR">
+					</a>
+				</div>
+			</div>
+		</div>
+
+		<div class="mobile_view">
+			<div class="open_menu" id="open_menu" onclick="toggle_menu()">
+				&#8803;
+				<input type="hidden" value="closed" id="menu_status"/>
+			</div>
+		</div>
+
+		<div class="flex-container menu_pane" id="menu_pane">
+			<div class="menu_items hyperlink" onclick="window.open('index.html', '_self');">
+				Home
+			</div>
+			&emsp;
+			<div class="menu_items hyperlink" onclick="window.open('about.html', '_self');">
+				About
+			</div>
+			&emsp;
+			<div class="menu_items hyperlink" onclick="window.open('resources.html', '_self');">
+				Resources
+			</div>
+			&emsp;
+			<div class="menu_items hyperlink" onclick="window.open('I-MSV.html', '_self');">
+				I-MSV Challenge
+			</div>
+			&emsp;
+			<div class="menu_items hyperlink" onclick="window.open('demo.html', '_self');">
+				Demo
+			</div>
+			&emsp;
+            <div class="menu_items hyperlink selected_menu" onclick="window.open('VOA.html', '_self');">
+				VOA Demo
+			</div>
+			&emsp;
+			<div class="menu_items hyperlink" onclick="window.open('hands_on.html', '_self');">
+				Hands-on
+			</div>
+			<div class="empty_menu_item">
+			</div>
+		</div>
+
+		<div class="flex-container dashboard">
+
+			<div class="demo_page_heading">
+				<div class="heading1">DEMO</div>
+				<div class="heading2">VOA Testing Module</div>
+				<img src="{{url_for('static', filename='/images/home_icon.png')}}" onclick="window.open('demo.html', '_self');" width="30px" class="hyperlink" title="Goto DEMO homepage"/>
+			</div>
+
+			<form id="auth-form" method="POST" enctype="multipart/form-data">
+				<div class="form-row">
+					<label class="input-label" for="speaker_label">Speaker Label:</label>
+					<input type="text" name="speaker_label" required>
+				</div>        
+			<p>Utter the given OTP : <span id="otp"></span></p>
+			<input type="hidden" id="otpInput" name="otp" value="">
+			<p>Click the button to start/stop recording</p>
+	
+			<div class="audio-recorder">
+				<audio id="recordedAudio" controls></audio>&nbsp;&nbsp;&nbsp;
+				<button id="recordButton" class="record-button"></button>
+			</div>
+			<br/>
+			<input type="submit" value="Authenticate" id="authenticateButton"> <br><br>
+			<div class="forgot_speaker_id" id="forgot_speaker_id">
+				<p class="heading2">Format of speaker ID</p>A speaker ID is generated using combinmation of first letter of First Name, first letter of your Last Name, first letter of your Gender and age. <b>For Example, if you have entered speaker details as 'Ganesh' 'Bhosale' 'Male' '25' then your speaker id is 'GBM25'</b>
+			</div> 
+
+			</form>
+			<div id="loader" class="loader"></div> 
+			<br/><br/>
+			<i id="success-icon" class="fas fa-check-circle fa-3x hidden" style="color:rgb(8, 183, 8)"></i> <br><br>
+            <div id="result" style="font-size: medium;"></div>
+            <b><div id="error-message" style="color: red;font-size: medium;"></div></b><br/>
+
+			<!-- <form class="audioForm" name="audioForm" id="audioForm">
+			<div class="details_tile">
+				<input type="text" name="speakerID" class="speakerID" id="speakerID" placeholder="Speaker ID" required/></div>
+				<div class="forgot_speaker_id" id="forgot_speaker_id">
+					<p class="heading2">Format of speaker ID</p>A speaker ID is generated using combinmation of first letter of First Name, first letter of your Last Name, first letter of your Gender and age. <b>For Example, if you have entered speaker details as 'Ganesh' 'Bhosale' 'Male' '25' then your speaker id is 'GBM25'</b>
+				</div>
+
+				<div class="start_recording_switch hyperlink" onclick="show_recording_menu();">
+					Start recording
+				</div>
+			</div> -->
+
+			<!-- <br/><br/><br/><br/><br/><br/><br/><br/> -->
+
+		</div>		
+
+		<div class="flex-container footer">
+			<div>© Copyright 2022. Designed and maintained by IIT Dharwad & IIIT Dharwad.</div>
+		</div>
+
+	</body>
+</html>
+
+<script>
+    $('#recordButton').addClass("notRec");
+
+    $('#recordButton').click(function(){
+        if($('#recordButton').hasClass('notRec')){
+            $('#recordButton').removeClass("notRec");
+            $('#recordButton').addClass("Rec");
+        }
+        else{
+            $('#recordButton').removeClass("Rec");
+            $('#recordButton').addClass("notRec");
+        }
+    });	
+    const otpElement = document.getElementById("otp");
+    const otpInput = document.getElementById("otpInput");
+    const speakerLabelInput = document.querySelector("input[name='speaker_label']"); // Select speaker label input
+    const recordButton = document.getElementById("recordButton");
+    var audioChunks = []; // Declare audioChunks globally
+    var isRecording = false;
+	var mediaRecorder;
+
+    function generateRandomOTP() {
+            const randomOTP = Array.from({ length: 3 }, () => Math.floor(Math.random() *5)).join('');
+            otpElement.textContent = randomOTP;
+            otpInput.value = randomOTP;
+			console.log(otpElement.textContent);
+    }
+
+    generateRandomOTP();
+
+    navigator.mediaDevices.getUserMedia({ audio: true }).then(stream => {
+            mediaRecorder = new MediaRecorder(stream);
+
+            mediaRecorder.ondataavailable = e => {
+                if (e.data.size > 0) {
+                    audioChunks.push(e.data);
+                }
+            };
+
+            mediaRecorder.onstop = () => {
+                const audioBlob = new Blob(audioChunks, { type: 'audio/wav' });
+                const audioUrl = URL.createObjectURL(audioBlob);
+                const recordedAudio = document.getElementById('recordedAudio');
+                recordedAudio.src = audioUrl;
+            };
+        });
+
+		function toggleRecording(event) {
+            event.preventDefault();
+
+            if (isRecording) {
+                mediaRecorder.stop();
+                isRecording = false;
+            } else {
+                audioChunks = [];
+                mediaRecorder.start();
+                isRecording = true;
+            }
+        }
+
+    recordButton.onclick = toggleRecording; // Pass the event to the function
+
+    function updateResultMessage(result) {
+            const resultDiv = $('#result');
+            const successIcon = $('#success-icon');
+            const errorMessage = $('#error-message');
+
+            successIcon.addClass('hidden');
+            errorMessage.addClass('hidden');
+
+            if (result === "True,True") {
+                successIcon.removeClass('hidden');
+                errorMessage.css('color', 'rgb(8, 183, 8)');
+                errorMessage.text("Speaker and OTP authentication successful");
+            } else {
+                errorMessage.removeClass('hidden');
+
+                if (result === "True,False") {
+                    errorMessage.css('color', 'red');
+                    errorMessage.text("Speaker authentication successful, OTP authentication unsuccessful");
+                } else if (result === "False,True") {
+                    errorMessage.css('color', 'red');
+                    errorMessage.text("OTP authentication successful, speaker authentication unsuccessful");
+                } else if (result === "False,False") {
+                    errorMessage.css('color', 'red');
+                    errorMessage.text("Both speaker and OTP authentication unsuccessful");
+                } else {
+                    errorMessage.css('color', 'red');
+                    errorMessage.text("Encountered an error in the authentication process. Please try again after some time");
+                }
+            }
+        }
+
+		// Handle form submission and AJAX request
+        $('#auth-form').submit(function(e) {
+            e.preventDefault();
+
+            if (audioChunks.length > 0) {
+                let blob = new Blob(audioChunks, { type: 'audio/wav' });
+                sendData(blob);
+            } else {
+                console.log("No recording to authenticate.");
+            }
+        });
+
+		function sendData(data) {
+            var form = new FormData();
+            form.append('file', data, 'data.wav');
+            form.append('title', 'data.wav');
+            form.append('speaker_label', speakerLabelInput.value);
+            form.append('otp', otpInput.value);
+
+            $('#loader').show();
+            $('#result').text('');
+            $('#error-message').addClass('hidden');
+
+            $.ajax({
+                type: 'POST',
+                url: '/verification',
+                data: form,
+                cache: false,
+                processData: false,
+                contentType: false,
+                beforeSend: function() {
+                    $('#authenticateButton').prop('disabled', true);
+                },
+                success: function(result) {
+                    $('#loader').hide();
+                    updateResultMessage(result);
+                },
+                complete: function() {
+                    $('#authenticateButton').prop('disabled', false);
+                }
+            }).done(function(data) {
+                console.log(data);
+            });
+        }
+</script>

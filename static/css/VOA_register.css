@@ -1,0 +1,126 @@
+/* Style form submit button */
+  button[type="submit"] {
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #218838;
+  }
+  
+  /* Style the audio recording buttons */
+  #audio-form button[type="button"] {
+    background-color: #1338ef;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  
+  #audio-form button[type="button"]:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Style the message section */
+  #message {
+    text-align: center;
+    margin-top: 20px;
+    font-weight: bold;
+    color: #279d43;;
+  }
+
+.audio-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 3px;
+}
+
+audio {
+    max-width: 40vh;
+    padding: 3px;
+    max-height: 7vh; 
+}
+
+button {
+    margin-left: 10px;
+    padding: 3px;
+}
+
+span {
+    padding-right: 5px;
+    padding-bottom: 3px;
+    font: 16px "Calibri", sans-serif ;
+}
+
+
+.inline-fields {
+        display: flex;
+    align-items: center;
+}
+
+.inline-fields label {
+    flex: 1;
+    text-align: right;
+    margin-right: 10px;
+}
+
+.inline-fields input,
+.inline-fields select {
+    flex: 2;
+    margin-right: 20px;
+}
+
+.audio-containers-wrapper {
+    display: flex;
+    justify-content: space-between; /* This will evenly space the two containers */
+}
+  
+  .audio-container {
+      flex: 0 0 calc(50% - 10px); /* Adjust the width as needed; 50% for two equal columns */
+      margin-right: 10px; /* Add spacing between the containers */
+      /* You can also add other styles like border, padding, etc. as needed */
+  }
+
+  /* Responsive layout adjustments
+  @media (max-width: 768px) {
+    #registration-form,
+    #audio-form
+  } */
+
+  /* CSS for the loader */
+  .loader {
+      border: 10px solid #f3f3f3;
+      border-top: 10px solid #1338ef;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      animation: spin 2s linear infinite;
+      margin: auto;
+      display: none;
+      /* position: absolute; */
+      top: 0; bottom: 0; left: 0; right: 0;
+  }
+
+
+  /* CSS for the content container */
+  .content {
+      display: none; /* Hide the content initially */
+  }
+
+  #success-icon.hidden {
+    display: none;
+  }
+
+  /* Keyframes for the loader animation */
+  @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+  }
+
+
+

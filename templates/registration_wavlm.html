@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!--Page Title-->
+	<title>Speaker Recognition System</title>
+	<!--Links-->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<!--Links of Required CSS files-->
+	<link rel="stylesheet" type="text/css" href="static/css/index1.css">
+	<link rel="stylesheet" type="text/css" href="static/css/footer.css">
+	<link rel="stylesheet" type="text/css" href="static/css/carousel.css">
+	<link rel="stylesheet" type="text/css" href="static/css/userDetails1.css">
+	<link rel="stylesheet" type="text/css" href="static/css/speech2text.css">
+
+	<script type="text/javascript" src="static/js/stickyNav.js"></script>
+	<script type="text/javascript" src="static/js/getAudioDevices.js"></script>
+	<script type="text/javascript" src="static/js/languageSelector.js"></script>
+
+	<!--Internal CSS-->
+	<style type="text/css">
+		.aboutus {
+			margin: 50px 50px 20px 50px;
+			text-align: justify;
+			text-justify: inter-word;
+		}
+		.stickyNav {
+		  position: fixed;
+		  top: 0;
+		  width: 100%;
+		}
+		.language {
+  			text-align: center;
+  			width: 10%;
+		}
+	</style>
+</head>
+<body>
+	<!--Page Header-->
+	<header class="header">
+		<p class="title">Development and Deployment of Scalable Speaker Recognition Technology in Different Applications</p>
+	</header>
+
+	<!--Page Navigation Links-->
+	<nav class="navbar" id="navbar" name="navbar">
+		<a href="/">Home</a>
+  		<!-- <a href="registration">User Registration</a>
+  		<a href="training">Training</a>
+  		<a href="testing">Testing</a>
+  		<a href="contactus">Contact us</a> -->
+  	</nav>
+	
+	<!--Section for Data-->
+	<section class="row">
+		<!--Page Left Column-->
+		<aside class="leftcol">
+			<h3></h3>
+		</aside>
+
+		<!--Page Main Cntent-->
+		<main class="main">
+			<h2 align="Center" class="mainTitle">
+				Welcome to the Speaker Recognition System
+			</h2> <hr>
+			<!--Input Form for taking the user data-->
+			<section>
+				<div class="userDetails">
+					<h3 class="head5">Please fill the following details carefully.</h3>
+					<form class="userInfo" id="userInfo" action="/store" method="post">
+						<!--First Name of the Speaker-->
+						<div class="trow">
+							<label for="fname">First Name: </label>
+							<input type="text" name="fname" id="fname" required>
+						</div>
+
+						<!--Last Name of the Speaker-->
+						<div class="trow">
+							<label for="lname">Last Name: </label>
+							<input type="text" name="lname" id="lname" required>
+						</div>
+
+						<!--Gender of the Speaker-->
+						<div class="trow">
+							<label for="gender">Gender: </label>
+							<select name="gender" id="gender" required>
+								<option disabled selected value> -- Select Gender -- </option>
+								<option value="M">Male</option>
+								<option value="F">Female</option>
+								<option value="O">Other</option>
+							</select>
+						</div>
+
+						<!--Age of the Speaker-->
+						<div class="trow">
+							<label for="age">Age:</label>
+							<input type="number" name="age" id="age" required min="8" max="100">
+						</div>
+
+						<div class="trow">
+							<label for="reg-lang">Select a Language for Registration:</label>
+							<select name="reg-lang" id="reg-lang" class="reg-lang" onchange="langSelect()">
+								<option disabled selected>--Select a language--</option>
+								<option value="Bengali">Bengali</option>
+								<option value="English">English</option>
+								<option value="Hindi">Hindi</option>
+								<option value="Kannada">Kannada</option>
+								<option value="Marathi">Marathi</option>
+								<option value="Telugu">Telugu</option>
+							</select> 
+						</div>
+							
+						<!--Speaker ID of the Speaker-->
+						<!-- <div class="trow">
+							<label for="username">Speaker ID: </label>
+							<input type="text" name="speakerid" id="speakerid" required>
+						</div> -->
+					</form>
+					<!-- <section class="lang-select">
+						<label for="language">Select a Language for Registration:</label>
+						<select name="language" id="language" class="language" onchange="langSelect()">
+							<option disabled selected>Select a language</option>
+							<option value="Bengali">Bengali</option>
+							<option value="English">English</option>
+							<option value="Hindi">Hindi</option>
+							<option value="Kannada">Kannada</option>
+							<option value="Marathi">Marathi</option>
+							<option value="Telugu">Telugu</option>
+						</select> 
+					</section> -->
+			
+					<section class="convertedText" id="convertedText" hidden>
+						<h4 style="text-align: center;">Read the following Text</h4>
+						India, officially the Republic of India is a country in South Asia. It is the seventh-largest country by area, the second-most populous country, and the most populous democracy in the world. Bounded by the Indian Ocean on the south, the Arabian Sea on the southwest, and the Bay of Bengal on the southeast, it shares land borders with Pakistan to the west; China, Nepal, and Bhutan to the north; and Bangladesh and Myanmar to the east. In the Indian Ocean, India is in the vicinity of Sri Lanka and the Maldives; its Andaman and Nicobar Islands share a maritime border with Thailand, Myanmar and Indonesia. India has been a federal republic since 1950, governed in a democratic parliamentary system. India is a megadiverse country, a term employed for 17 countries which display high biological diversity and contain many species exclusively indigenous, or endemic, to them. India is a habitat for 8.6% of all mammal species, 13.7% of bird species, 7.9% of reptile species, 6% of amphibian species, 12.2% of fish species, and 6.0% of all flowering plant species. Fully a third of Indian plant species are endemic. India also contains four of the world's 34 biodiversity hotspots, or regions that display significant habitat loss in the presence of high endemism. India is a federation with a parliamentary system governed under the Constitution of India—the country's supreme legal document. India is a federal union comprising 28 states and 8 union territories.
+					</section>
+
+					<section class="bengali-lang" id="bengali-lang" hidden>
+						<h4 style="text-align: center;">Read the following Text/নিচের অংশটি পর.</h4>
+						জনগণমন-অধিনায়ক জয় হে ভারতের জাতীয় সঙ্গীত। এই গানটি রবীন্দ্রনাথ ঠাকুর কর্তৃক তৎসম বাংলা ভাষায় রচিত। গানটির রচনাকাল জানা যায় না। ১৯১১ খ্রিষ্টাব্দে জাতীয় কংগ্রেসের একটি সভায় এটি প্রথম গীত হয়। ১৯৫০ খ্রিষ্টাব্দে স্বাধীন ভারতের জাতীয় সঙ্গীত স্বীকৃতি লাভ করে এর প্রথম স্তবকটি। বঙ্কিমচন্দ্র চট্টোপাধ্যায় রচিত বন্দেমাতরম গানটিও সমমর্যাদায় জাতীয় সঙ্গীতের স্বীকৃতি লাভ করে। বর্তমানে জনগণমন ভারতের জাতীয় সংগীত বা রাষ্ট্রগান (ন্যাশানাল অ্যানথেম) ও বন্দেমাতরম ভারতের জাতীয় স্তোত্র বা রাষ্ট্রগীত (ন্যাশানাল সং) বিবেচিত হয়। 
+					</section>
+					<section class="hindi-lang" id="hindi-lang" hidden>
+						<h4 style="text-align: center;">Read the following Text/निम्न पाठ पढें।</h4>
+						हिन्दी दिवस प्रत्येक वर्ष 14 सितम्बर को मनाया जाता है। 14 सितम्बर 1949 को संविधान सभा ने यह निर्णय लिया कि हिन्दी केन्द्र सरकार की आधिकारिक भाषा होगी। क्योंकि भारत मे अधिकतर क्षेत्रों में ज्यादातर हिन्दी भाषा बोली जाती थी इसलिए हिन्दी को राजभाषा बनाने का निर्णय लिया और इसी निर्णय के महत्व को प्रतिपादित करने तथा हिन्दी को प्रत्येक क्षेत्र में प्रसारित करने के लिये वर्ष 1953 से पूरे भारत में 14 सितम्बर को प्रतिवर्ष हिन्दी-दिवस के रूप में मनाया जाता है। स्वतन्त्रता प्राप्ति के बाद हिन्दी को आधिकारिक भाषा के रूप में स्थापित करवाने के लिए काका कालेलकर, हजारीप्रसाद द्विवेदी, सेठ गोविन्ददास आदि साहित्यकारों को साथ लेकर व्यौहार राजेन्द्र सिंह ने अथक प्रयास किये। 
+					</section>
+
+					<section class="kannada-lang" id="kannada-lang" hidden>
+						<h4 style="text-align: center;">Read the following Text/ಕೆಳಗಿನ ಪಠ್ಯವನ್ನು ಓದಿ.</h4>
+						ಬಸವಣ್ಣ ಬಸವಣ್ಣ ಜನಿಸಿದ್ದು ವಿಜಯಪುರ ಜಿಲ್ಲೆಯ ಬಸವನ ಬಾಗೇವಾಡಿಯಲ್ಲಿ ತಂದೆ=ಮಾದರಸ,ತಾಯಿ=ಮಾದಲಂಬಿಕೆ (ಬಸವ,ಬಸವೇಶ್ವರ ) ಭಾರತದ 12 ನೇ ಶತಮಾನದ ಕನ್ನಡದ ಒಬ್ಬ ತತ್ವಜ್ಞಾನಿ,ಕಲಚೂರಿ ಅರಸನ ಬಿಜ್ಜಳ ಆಸ್ಥಾನದಲ್ಲಿ ಮಂತ್ರಿಯಾಗಿದ್ದರು ಮತ್ತು ಸಾಮಾಜಿಕ ಸುಧಾರಕರಾಗಿದ್ದರು. ಶಿವ ಕೇಂದ್ರೀಕೃತ ಭಕ್ತಿ ಚಳುವಳಿಯಲ್ಲಿ ಕನ್ನಡ ಕವಿಯಾಗಿದ್ದರು . ಬಸವಣ್ಣ ವಚನಗಳ ಮೂಲಕ ಸಾಮಾಜಿಕ ಅರಿವು ಹರಡಿದರು, ಬಸವಣ್ಣರು ಲಿಂಗ ತಾರತಮ್ಯ , ಸಾಮಾಜಿಕ ತಾರತಮ್ಯ, ಮೂಢನಂಬಿಕೆಗಳನ್ನು ನಿರಾಕರಿಸಿದರು.ಇಷ್ಟಲಿಂಗ ಹಾರವನ್ನು ಪರಿಚಯಿಸಿದರು (ಶಿವ ಲಿಂಗ) ಶಿವನ ಒಂದು ಭಕ್ತಿ ಒಂದು ನಿರಂತರ ಜ್ಞಾಪನೆ ಎಂದು. ಇದನ್ನು ಎಲ್ಲರು ಧರಿಸಿ ಪೂಜಿಸಬಹುದು. ತನ್ನ ಸಾಮ್ರಾಜ್ಯದ ಮುಖ್ಯಮಂತ್ರಿಯಾಗಿ, ಅವರು ಅನುಭವ ಮಂಟಪ (ಅಥವಾ, "ಆಧ್ಯಾತ್ಮಿಕ ಅನುಭವದ ಭವನ), ಇಲ್ಲಿ ಎಲ್ಲಾ ಸಾಮಾಜಿಕ-ಆರ್ಥಿಕ ಹಿನ್ನೆಲೆಯ ಪುರುಷ ಮತ್ತು ಮಹಿಳೆಯರು ಆಧ್ಯಾತ್ಮಿಕ ಮತ್ತು ಪ್ರಾಪಂಚಿಕ ಪ್ರಶ್ನೆಗಳನ್ನು ಮುಕ್ತವಾಗಿ ಚರ್ಚಿಸಲು ಸ್ವಾಗತಿಸಿತು.ಬಸವಣ್ಣನವರ ಜೊತೆ ೭೭೦ ಅಮರಗಣಂಗಳು ಇದ್ದರೆಂದು ಮತ್ತು ೧,೯೬,೦೦೦ ಶರಣರಿದ್ದರೆಂದು ಐತಿಹಾಸಿಕ ಪುರಾವೆಗಳಿವೆ.
+					</section>
+
+					<section class="marathi-lang" id="marathi-lang" hidden>
+						<h4 style="text-align: center;">Read the following Text/खालील मजकूर वाचा.</h4>
+						महाराष्ट्र दिन हा दिवस महाराष्ट्राची राज्य सुट्टी आहे. हा दिवस महाराष्ट्र राज्याच्या स्थापनेच्या स्मरणार्थ साजरा केला जातो. १ मे १९६० रोजी झालेल्या मुंबई राज्याच्या विभाजनापासून महाराष्ट्र दिन हा सामान्यतः परेड आणि राजकीय भाषणे तसेच समारंभांशी संबंधित आहे. तसेच इतर विविध सार्वजनिक आणि खाजगी कार्यक्रमांबरोबरच महाराष्ट्राचा इतिहास आणि परंपरा या दिवशी साजरे करतात. महाराष्ट्राच्या मराठी भाषिक राज्याच्या निर्मितीच्या स्मरणार्थ हा दिवस साजरा केला जातो. २५ एप्रिल १९६० रोजी भारतीय संसदेने लागू केलेल्या बॉम्बे पुनर्रचना कायदा, १९६० नुसार या चळवळीचा परिणाम म्हणून महाराष्ट्र आणि गुजरात राज्यांची निर्मिती झाली. हा कायदा १ मे १९६० रोजी अंमलात आला.
+					</section>
+
+					<section class="telugu-lang" id="telugu-lang" hidden>
+						<h4 style="text-align: center;">Read the following Text/కింది వచనాన్ని చదవండి.</h4>
+						తెలుగు సినిమా లేదా టాలీవుడ్ హైదరాబాదు కేంద్రంగా పనిచేస్తున్న భారతీయ సినిమా లోని ఒక భాగము. తెలుగు సినిమా పితామహుడుగా సంబోధించబడే రఘుపతి వెంకయ్య నాయుడు 1909 నుండే తెలుగు సినిమాని ప్రోత్సాహానికై ఆసియా లోని వివిధ ప్రదేశాలకి పయనించటం వంటి పలు కార్యక్రమాలని చేపట్టాడు. 1921 లో భీష్మ ప్రతిజ్ఞ అను నిశబ్ద చిత్రాన్ని నిర్మించాడు. కోస్తాంధ్రలో ప్రప్రథమమైన ఫిలిం స్టూడియో అయిన దుర్గా సినీటోన్ని నిడమర్తి సూరయ్య రాజమండ్రిలో స్థాపించాడు. తెలుగు సినిమా, తెలుగు నాటకరంగం, తెలుగు టీవీ ప్రసారాలలో అత్యున్నత ప్రతిభకి వేదిక హైదరాబాదు లోని లలిత కళాతోరణంలో జరిగే నంది అవార్డుల ప్రదానోత్సవం వేడుక. ఇది ఆంధ్రప్రదేశ్ ప్రభుత్వానికి చెందిన ఫిలిం టెలివిజన్ అండ్ థియేటర్ డెవలప్ మెంట్ కార్పొరేషన్ చే నిర్వహించబడుతుంది. ఈ వేదికకి ఆంధ్రప్రదేశ్ సాంస్కృతిక, చారిత్రక చిహ్నమైన లేపాక్షి నంది ని స్ఫూర్తిగా తీసుకొనబడింది. 
+					</section>
+
+					<section class="audioStream">
+						<form class="audioForm" name="audioForm" id="audioForm">
+							<input type="button" class="recordButton" name="recordButton" id="recordButton" value="START">
+							<input type="button" name="stopRecording" class="stopRecording" id="stopRecording" value="STOP">
+							<p class="timer" id="timer" name="timer">Not Recording.</p>
+						</form>
+					</section>
+
+					<!--Submit Button to submit the data and redirect to the video recording page-->
+					<!-- <div class="submitDiv">
+						<button class="subButton" name="submit" value="submit" form="userInfo">
+							Submit
+						</button>
+					</div> -->
+				</div>
+			</section>
+		</main>
+
+		<!--Page Right Column-->
+		<aside class="rightcol">
+			<h3></h3>
+		</aside>
+	</section>
+
+	<!--Page Footer-->
+	<!-- <footer class="footer">
+		<aside class="footcol">
+			<h3>About Us</h3>
+			<p>IIIT, Dharwad</p>
+			<a href="contactus">Contact us</a>
+		</aside>
+		<aside class="footcol">
+			<h4>Related Links</h4>
+			<a href="http://www.walchandsangli.ac.in" target="_blank">IIIT Dharwad</a> <br>
+			<a href="https://www.aicte-india.org/" target="_blank">AICTE</a> <br>
+			<a href="https://www.ugc.ac.in/" target="_blank">UGC</a> 
+		</aside>
+		<aside class="footcol">
+			<h4>Follow IIIT Dharwad</h4>
+			<a href="https://www.facebook.com/" target="_blank">Facebook</a> <br>
+			<a href="https://twitter.com/" target="_blank">Twitter</a>
+			<br>
+			<a href="https://www.instagram.com/" target="_blank">Instagram</a> 
+		</aside>
+		<section align="Center">
+			<i><b>All rights are reserved to IIIT Dharwad</b></i>
+		</section>
+	</footer> -->
+</body>
+</html>
+
+<script type="text/javascript">
+	recordButton.addEventListener('click', (ev) => {
+		if(fname.value=='' || lname.value==''||gender.value==''||age.value=='') {
+			alert('Please fill all of the speaker details!!!')
+		}
+		else {
+			tstart();
+			timer();
+		}
+	});
+
+	stopRecording.addEventListener('click', (ev) => {
+		tstop();
+	})
+</script>

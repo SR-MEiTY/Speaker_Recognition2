@@ -1,0 +1,159 @@
+/* body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f2f2f2;
+  } */
+  
+  .container {
+    text-align: center;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  form label,
+  form input[type="file"],
+  form input[type="text"] {
+    margin: 10px;
+  }
+  
+  .form-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .input-label {
+    margin-right: 10px;
+  }
+  
+  input[type="submit"] {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #218838;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  input[type="submit"]:hover {
+    background-color: #4bbe64;
+  }
+
+  label {
+    display: inline-block;
+    width: 60%;
+    text-align: center;
+    margin-left: auto;
+    font-weight: bold;
+  }
+  
+  input[type="text"],
+  select {
+    width: 60%;
+    padding: 6px;
+    margin-bottom: 8px;
+    border: 2px solid #8f8a8a;
+    border-radius: 3px;
+  }
+  
+  /* Audio Recorder Styles */
+  .audio-recorder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .record-button, .stop-button {
+    background-color: #ff4757;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    outline: none;
+    margin: 5px; /* Added margin for spacing */
+  }
+  
+  .stop-button {
+    background-color: #2ed573;
+  }
+  
+  .record-button:hover, .stop-button:hover {
+    background-color: #ff6b81;
+  }
+  
+  button:disabled {
+    cursor: not-allowed;
+  }
+  
+  /* Loader Styles */
+  .loader {
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid #3498db;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+    display: none; /* Hide the loader initially */
+    margin: 20px auto; /* Adjust margin as needed */
+  }
+  
+  button {
+      width: 35px;
+      height: 35px;
+      font-size: 0;
+      background-color: red;
+      border: 0;
+      /* border-radius: 200px; */
+      margin: 18px;
+      outline: none;
+  }
+  
+  .notRec{
+    background-color: red;
+    border-color: black;
+    border: 3px;
+  }
+  
+  .Rec{
+    animation-name: pulse;
+    animation-duration: 1.5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+  }
+  
+  @keyframes pulse{
+      0%{
+          box-shadow: 0px 0px 5px 0px rgba(173,0,0,.3);
+      }
+      65%{
+          box-shadow: 0px 0px 5px 13px rgba(173,0,0,.3);
+      }
+      90%{
+          box-shadow: 0px 0px 5px 13px rgba(173,0,0,0);
+      }
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+  
