@@ -1,4 +1,4 @@
-Speaker Recognition System with GMM-UBM and WAVLM models.
+Speaker Recognition System deployment and testing for WavlM Model
 
 Instructions to run the web app using Flask Server.
 
