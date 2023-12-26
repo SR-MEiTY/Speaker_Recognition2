@@ -21,3 +21,5 @@ Instructions to run the web app using Flask Server.
 10. Open the webapp in the web browser using IP address and Port Number displayed on the terminal. (e.g. https://192.168.1.150:8888)
 11. Now you will be able to see a web application in the web browser and you can do registration and verification of the speaker.
 
+![image](https://github.com/SR-MEiTY/Speaker_Recognition2/assets/104900510/e28262e1-36d8-498b-b36d-095f4f10b79e)
+
