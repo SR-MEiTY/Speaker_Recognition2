@@ -18,7 +18,7 @@ Instructions to run the web app using Flask Server.
    https://drive.google.com/file/d/109gOlv0FqV43eE7dr_1fpVIEFxtIqPy3/view?usp=drive_link
 8. Open the web app folder from the command prompt/terminal, activate the a environment, if not activated and run the server using 'python backend.py'
 9. This will run the web app.
-10. Open the webapp in the web browser using IP address and Port Number displayed on the terminal. (e.g. https://192.168.1.150:8888)
+10. Open the webapp in the web browser using IP address and Port Number displayed on the terminal. (e.g. https://203.129.246.105:6060/)
 11. Now you will be able to see a web application in the web browser and you can do registration and verification of the speaker.
 Instruction for testing the enrollment and verification for WAVlm Model
 
