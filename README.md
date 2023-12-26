@@ -6,6 +6,7 @@ Prerequisites:
 pip install -r requirements.txt
 
 If you want to train the Model from the Scartch go the refrences folder thier train_ecapa.py file is present.
+
 After downloading the finetuned checkpoint follow the following steps in order to extract finetuned features from the model:
 Load the checkpoint using =torch.load"/home/iiitdwd/cocosda_wavlm/exps/exp1_wavlm2/epoch=15-VEER=5.100-mindcf=0.198.ckpt"
 Change the path in the model to where epoch=15-VEER=5.100-mindcf=0.198.ckpt"
