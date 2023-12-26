@@ -1,5 +1,5 @@
 # Speaker_Recognition
-Speaker Recognition System with GMM-HMM and WAVLM models.
+Speaker Recognition System with GMM-UBM and WAVLM models.
 
 Instructions to run the web app using Flask Server.
 
