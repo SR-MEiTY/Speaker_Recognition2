@@ -61,7 +61,7 @@ python3 extract_test_emd.py
 
    **d. Score Calculation**
     
-    In Speaker_Recognition2/referenceFiles/score.py you have to modify the following:
+In Speaker_Recognition2/referenceFiles/score.py you have to modify the following:
 
 load the enrollment checkpoint
 speaker_feat=torch.load(<Path_of_the_checkpoint>)
