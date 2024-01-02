@@ -8,6 +8,15 @@ Python: 3.8 and higher
 
 Pip version: 2.2 and higher
 
+**Dataset Details**
+
+**Trained data**:
+
+**Enrollment data**:
+
+**testing Data**:
+
+
 **1. TRAINING A NEW MODEL**
    
    The Speaker Recognition system can be trained and a custom model can be built using the dataset. The process to build a new model is as follows:
