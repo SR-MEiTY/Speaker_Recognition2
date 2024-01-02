@@ -1,22 +1,76 @@
 the speaker recognition systems we have two procdure to follow fir
 ____________
-Prerequisites:
+**PREREQUISITES:**
 OS version: Ubuntu 20.04 LTS &higher
 Python :3.8 and higher
 Pip version 2.2 and higher
-**
-1. TRAINING A NEW MODEL**
+
+
+**1. TRAINING A NEW MODEL**
    The Speaker Recognition system can be trained and a custom model can be built using the dataset. The process to build a new model is as follows:
-   a. Training
-   b. Enrollment
-   c. Testing
-   d. Score Calculation
+   
+   **a. Training**
+   
+   **b. Enrollment**
+   In Speaker_Recognition2/referenceFiles/extract_enrol_emd.py you have to modify the following:
+
+load the enrollment checkpoint for the link given here https://drive.google.com/file/d/109gOlv0FqV43eE7dr_1fpVIEFxtIqPy3/view?usp=drive_link
+Speaker_feat=<path_of_checkpoint>
+
+load the test checkpoint 
+testset = test_dataset_loader<path_for_test_feat>
+    
+save the model to a new location using 
+torch.save < speaker_feat,path>
+
+Open terminal and type the following:
+python3 extract_enrol_emd.py
+
+   **c. Testing**
+   In Speaker_Recognition2/referenceFiles/extract_test_emd.py you have to modify the following:
+
+ load the checkpoint using
+ a = torch.load<path_of_the_checkpoint>
+
+ load the path of test data
+testset = test_dataset_loader<provide_the_path>
+   
+ save the model to a new location
+torch.save<provide_the_path>
+
+Open terminal and type the following:
+python3 extract_test_emd.py
+
+   **d. Score Calculation**
+    In Speaker_Recognition2/referenceFiles/score.py you have to modify the following:
+
+load the enrollment checkpoint
+speaker_feat=torch.load()
+
+load the test checkpoint
+test_feat=torch.load()
+
+provide the path for cohart.csv file
+speaker_id=pd.read_csv()
+
+ provide the path for the test data folder
+test_key =os.path.join( ) 
+
+ save the results.csv file to a new location
+p.to_csv()
+
+Open terminal and type the following:
+python3 score.py
+
+**e.Calculate The EER **
+In performance.sh file you need to modify the following:
+ python evaluation.py --groundtruth give the path of cohart.csv file --prediction give the path of results.csv file which you obtain from the score.py
+
 **2. DEPLOY THE SYSTEM GUI**
    If you want to deploy the prebuilt Speaker Recognition System, follow the following steps:
    Speaker Recognition System deployment and testing for WavlM Model
 
 Instructions to run the web app using Flask Server.
-pip install -r requirements.txt
 
 1. Install Anaconda or mini conda.
 2. Create a Virtual Environment in command prompt using 'conda create --name flaskenv python=3.8'
@@ -28,7 +82,9 @@ pip install -r requirements.txt
     4. pydub
     5. ffmpeg
     6. numpy
-5. Install dependencies from requirements.txt and any other dependencies shown while running the backend.py
+5. Install dependencies from requirements.txt and any other dependencies shown while running the backend.py using
+   
+   pip install -r requirements.txt
 7. Download the trained model from following link and put it in the root folder:
    https://drive.google.com/file/d/109gOlv0FqV43eE7dr_1fpVIEFxtIqPy3/view?usp=drive_link
 8. Open the web app folder from the command prompt/terminal, activate the a environment, if not activated and run the server using 'python backend.py'
@@ -61,6 +117,7 @@ Step 4:After clicking into enrollment Need to enroll yourself with Name , Surnam
  Step 11:This step is specify whether the speaker is recognised or No
  ![image](https://github.com/SR-MEiTY/Speaker_Recognition2/assets/104900510/9f925f96-c797-43e8-aede-0a35ed06aa2f)
 
+
 If you want to train the Model from the Scartch go the refrences folder thier train_ecapa.py file is present.
 
 After downloading the finetuned checkpoint follow the following steps in order to extract finetuned features from the model:
@@ -70,73 +127,16 @@ Save the new checkpoint to a new location torch.save(path, 'checkpoint_new.pt')
 
 Enrollment:
 ___________
-In Speaker_Recognition2/referenceFiles/extract_enrol_emd.py you have to modify the following:
-
-#In line 41 you have to load the load the checkpoint using
-a=torch.load("/home/iiitdwd/cocosda_wavlm/exps/exp_21thMay_rawnet_step3/epoch=1-VEER=49.963-mindcf=1.000.ckpt")['state_dict']
-
-#In line 53 provide the path of enrollment data
-testset = test_dataset_loader(
-    list(glob.glob("/home/iiitdwd/cocosda_wavlm/data/Enr_data-20230204T124515Z-001/enr_data_1/*.wav")),
-    "",
-    500,
-    num_eval=15   
-)
-
-#In line 86 save the model to a new location
-torch.save(speaker_feat, "data_2ndNov/env_enr_1.pth")
-
-Open terminal and type the following:
-python3 extract_enrol_emd.py
 
 Testing:
 ________
-In Speaker_Recognition2/referenceFiles/extract_test_emd.py you have to modify the following:
-
-#In line 42 you have to load the load the checkpoint using
-a=torch.load("/home/iiitdwd/cocosda_wavlm/exps/RawNet3_AAM/epoch=1-VEER=27.700-mindcf=0.950.ckpt")['state_dict']
-
-#In line 56 provide the path of test data
-testset = test_dataset_loader(
-    list(glob.glob("/home/iiitdwd/cocosda_wavlm/data/I-MSV-Private-test-20230204T115807Z-001/I-MSV-Private-test/data/*.wav")),
-    "",
-    500,
-    num_eval=15   
-)
-
-#In line 94 save the model to a new location
-torch.save(feats, "data/test_emb_raw_private.pt
-
-Open terminal and type the following:
-python3 extract_test_emd.py
 
 To calculate the score:
 _______________________
-In Speaker_Recognition2/referenceFiles/score.py you have to modify the following:
-
-#In line 76 load the enrollment checkpoint
-speaker_feat=torch.load("/home/iiitdwd/cocosda_wavlm/TE/test_emb_wavlm3_enroll30.pth", map_location={'cuda:0': 'cpu'})
-
-#In line 77 load the test checkpoint
-test_feat=torch.load("/home/iiitdwd/cocosda_wavlm/data_21stOct/test_emb_wavlm_private.pth", map_location={'cuda:0': 'cpu'})
-
-#In line 93 provide the path for cohart.csv file
-speaker_id=pd.read_csv("/home/iiitdwd/cocosda_wavlm/data/I-MSV-Private-test-20230204T115807Z-001/I-MSV-Private-test/private_test_cohart.csv")
-
-#In line 96 provide the path for the test data folder
-test_key =os.path.join("/home/iiitdwd/cocosda_wavlm/data/I-MSV-Private-test-20230204T115807Z-001/I-MSV-Private-test/data",row.utterance_id) 
-
-#In line 140 save the results.csv file to a new location
-p.to_csv("predswavlm_pri_td30.csv")
-
-Open terminal and type the following:
-python3 score.py
 
 To calculate the EER:
 _____________________
-In performance.sh file you need to modify the following:
- 
-python evaluation.py --groundtruth give the path of cohart.csv file --prediction give the path of results.csv file which you obtain from the score.py
+
 
 Open terminal and type the following:
 ./performance.sh
