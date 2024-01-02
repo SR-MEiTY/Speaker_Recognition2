@@ -66,7 +66,7 @@ p.to_csv()
 Open terminal and type the following:
 python3 score.py
 
-**e.Calculate The EER **
+*** e.Calculate The EER **
 
 In performance.sh file you need to modify the following:
  python evaluation.py --groundtruth give the path of cohart.csv file --prediction give the path of results.csv file which you obtain from the score.py
