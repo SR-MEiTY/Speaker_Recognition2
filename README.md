@@ -10,7 +10,7 @@ Pip version: 2.2 and higher
 
 **Dataset Details**
 
-**Trained data**:
+**Training data**:
 
 **Enrollment data**:
 
