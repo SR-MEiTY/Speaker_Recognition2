@@ -22,10 +22,16 @@ Pip version: 2.2 and higher
    The Speaker Recognition system can be trained and a custom model can be built using the dataset. The process to build a new model is as follows:
    
    **a. Training**
+   Go to File train_ecap.py 
+   1.Use loss function as per your requirments,three loss functions,Three loss functions are mentioned in the above file i.e train_ecapa.py 
    
-   self.model =model = ECAPA_TDNN_SMALL(feat_dim=1024, feat_type='wavlm_large', config_path=config_path)
-   checkpoint="/content/sources/final_source/wavlm_large_finetune.pth"
+   2.provide the training and test data path
    
+   3.Execute the file as follows python3 train_ecap.py
+   
+   4. This will generate a model file which can be used for testing purpose
+   
+
    **b. Enrollment**
    
    In Speaker_Recognition2/referenceFiles/extract_enrol_emd.py you have to modify the following:
