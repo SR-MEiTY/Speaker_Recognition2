@@ -12,9 +12,21 @@ Pip version: 2.2 and higher
 
 **Training data**:
 
+https://drive.google.com/drive/folders/1YcBY0SgO2ErnMcHrvTPnjFkENX0RUMyY
+
 **Enrollment data**:
 
+https://drive.google.com/drive/folders/1YcBY0SgO2ErnMcHrvTPnjFkENX0RUMyY
+
 **testing Data**:
+
+**Public Test Data**
+
+https://drive.google.com/drive/folders/1n1zZYvx8rFw0vUy20vGFMLL-kQUbV3CB
+
+**Private Test Data**
+
+https://drive.google.com/drive/folders/1Nf71uLGaX0_QlZpzoFsmMwUOOixB-0S9
 
 
 **1. TRAINING A NEW MODEL**
@@ -23,13 +35,14 @@ Pip version: 2.2 and higher
    
    **a. Training**
    Go to File train_ecap.py 
+   
    1.Use loss function as per your requirments,three loss functions,Three loss functions are mentioned in the above file i.e train_ecapa.py 
    
    2.provide the training and test data path
    
    3.Execute the file as follows python3 train_ecap.py
    
-   4. This will generate a model file which can be used for testing purpose
+his will generate a model file which can be used for testing purpose
    
 
    **b. Enrollment**
