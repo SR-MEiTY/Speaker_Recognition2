@@ -107,6 +107,11 @@ In performance.sh file you need to modify the following:
 
 python evaluation.py --groundtruth give the path of cohart.csv file --prediction give the path of results.csv file which you obtain from the score.py
 
+Open terminal and type the following:
+./performance.sh
+--------------------------------------------------------------------------------------------------------------------------------------
+
+
 **2. DEPLOY THE SYSTEM GUI**
 
    If you want to deploy the prebuilt Speaker Recognition System, follow the following steps:
@@ -157,26 +162,5 @@ Step 4:After clicking into enrollment Need to enroll yourself with Name , Surnam
  ![image](https://github.com/SR-MEiTY/Speaker_Recognition2/assets/104900510/9f925f96-c797-43e8-aede-0a35ed06aa2f)
 
 
-If you want to train the Model from the Scartch go the refrences folder thier train_ecapa.py file is present.
-
-After downloading the finetuned checkpoint follow the following steps in order to extract finetuned features from the model:
-Load the checkpoint using =torch.load"/home/iiitdwd/cocosda_wavlm/exps/exp1_wavlm2/epoch=15-VEER=5.100-mindcf=0.198.ckpt"
-Change the path in the model to where epoch=15-VEER=5.100-mindcf=0.198.ckpt"
-Save the new checkpoint to a new location torch.save(path, 'checkpoint_new.pt')
-
-Enrollment:
-___________
-
-Testing:
-________
-
-To calculate the score:
-_______________________
-
-To calculate the EER:
-_____________________
 
 
-Open terminal and type the following:
-./performance.sh
---------------------------------------------------------------------------------------------------------------------------------------
