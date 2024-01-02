@@ -1,12 +1,15 @@
 the speaker recognition systems we have two procdure to follow fir
 ____________
 **PREREQUISITES:**
-OS version: Ubuntu 20.04 LTS &higher
-Python :3.8 and higher
-Pip version 2.2 and higher
 
+OS version: Ubuntu 20.04 LTS and higher
+
+Python: 3.8 and higher
+
+Pip version: 2.2 and higher
 
 **1. TRAINING A NEW MODEL**
+   
    The Speaker Recognition system can be trained and a custom model can be built using the dataset. The process to build a new model is as follows:
    
    **a. Training**
@@ -15,6 +18,7 @@ Pip version 2.2 and higher
    checkpoint="/content/sources/final_source/wavlm_large_finetune.pth"
    
    **b. Enrollment**
+   
    In Speaker_Recognition2/referenceFiles/extract_enrol_emd.py you have to modify the following:
 
 load the enrollment checkpoint for the link given here https://drive.google.com/file/d/109gOlv0FqV43eE7dr_1fpVIEFxtIqPy3/view?usp=drive_link
@@ -22,81 +26,83 @@ load the enrollment checkpoint for the link given here https://drive.google.com/
 Speaker_feat=<path_of_checkpoint>
 
 load the test checkpoint 
-testset = test_dataset_loader<path_for_test_feat>
+testset = test_dataset_loader(<path_for_test_feat>)
     
 save the model to a new location using 
-torch.save < speaker_feat,path>
+torch.save(<speaker_feat,path>)
 
 Open terminal and type the following:
 python3 extract_enrol_emd.py
 
    **c. Testing**
+   
    In Speaker_Recognition2/referenceFiles/extract_test_emd.py you have to modify the following:
 
  load the checkpoint using
- a = torch.load<path_of_the_checkpoint>
+ a = torch.load(<path_of_the_checkpoint>)
 
  load the path of test data
-testset = test_dataset_loader<provide_the_path>
+testset = test_dataset_loader(<provide_the_path>)
    
  save the model to a new location
-torch.save<provide_the_path>
+torch.save(<provide_the_path>)
 
 Open terminal and type the following:
 python3 extract_test_emd.py
 
    **d. Score Calculation**
+    
     In Speaker_Recognition2/referenceFiles/score.py you have to modify the following:
 
 load the enrollment checkpoint
-speaker_feat=torch.load()
+speaker_feat=torch.load(<Path_of_the_checkpoint>)
 
 load the test checkpoint
-test_feat=torch.load()
+test_feat=torch.load(<Path_of_the_test_checkpoint>)
 
 provide the path for cohart.csv file
-speaker_id=pd.read_csv()
+speaker_id=pd.read_csv(<Path_of_the_CSV_file>)
 
  provide the path for the test data folder
-test_key =os.path.join( ) 
+test_key =os.path.join(<Path_of_the_Test_Data_Folder>)
 
  save the results.csv file to a new location
-p.to_csv()
+p.to_csv(<Path_to_Save_the_Results>)
 
 Open terminal and type the following:
+
 python3 score.py
 
-*** e.Calculate The EER **
+**e.Calculate The EER**
 
 In performance.sh file you need to modify the following:
- python evaluation.py --groundtruth give the path of cohart.csv file --prediction give the path of results.csv file which you obtain from the score.py
+
+python evaluation.py --groundtruth give the path of cohart.csv file --prediction give the path of results.csv file which you obtain from the score.py
 
 **2. DEPLOY THE SYSTEM GUI**
+
    If you want to deploy the prebuilt Speaker Recognition System, follow the following steps:
    Speaker Recognition System deployment and testing for WavlM Model
 
 Instructions to run the web app using Flask Server.
 
-1. Install Anaconda or mini conda.
+1. Install Anaconda using the following link:
+   
+   https://www.anaconda.com/download
 2. Create a Virtual Environment in command prompt using 'conda create --name flaskenv python=3.8'
 3. Activate the environment using 'conda activate flaskenv'
 4. Install the dependencies using pip install '<package_name>' or 'conda install <package_name>'
-    1. flask
-    2. flask_mysqldb
-    3. librosa
-    4. pydub
-    5. ffmpeg
-    6. numpy
-5. Install dependencies from requirements.txt and any other dependencies shown while running the backend.py using
-   
+   or
+   Install dependencies from requirements.txt and any other dependencies shown while running the backend.py using
+
    pip install -r requirements.txt
-7. Download the trained model from following link and put it in the root folder:
-   https://drive.google.com/file/d/109gOlv0FqV43eE7dr_1fpVIEFxtIqPy3/view?usp=drive_link
-8. Open the web app folder from the command prompt/terminal, activate the a environment, if not activated and run the server using 'python backend.py'
-9. This will run the web app.
-10. Open the webapp in the web browser using IP address and Port Number displayed on the terminal. (e.g. https://203.129.246.105:6060/)
-11. Now you will be able to see a web application in the web browser and you can do registration and verification of the speaker.
-Instruction for testing the enrollment and verification for WAVlm Model
+5. Download the trained model from link provided in the Enrollment section and put it in the root folder.
+6. Open the web app folder from the command prompt/terminal, activate the a environment, if not activated and run the server using 'python backend.py'
+7. This will run the web app.
+8. Open the webapp in the web browser using IP address and Port Number displayed on the terminal. (e.g. https://localhost:port_number/)
+9. Now you will be able to see a web application in the web browser and you can do registration and verification of the speaker.
+
+Demo screenshots for the enrollment and verification for WAVlm Model:
 
 Step1: Entering the IP address  https://203.129.246.105:6060/ the below home page will get browsered Page
 ![image](https://github.com/SR-MEiTY/Speaker_Recognition2/assets/104900510/bbaf650c-a2d6-4e16-851a-05cf042796f8)
