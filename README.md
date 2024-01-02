@@ -1,4 +1,4 @@
-the speaker recognition systems we have two procdure to follow fir
+
 ____________
 **PREREQUISITES:**
 
