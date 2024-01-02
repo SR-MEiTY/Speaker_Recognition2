@@ -18,6 +18,7 @@ Pip version 2.2 and higher
    In Speaker_Recognition2/referenceFiles/extract_enrol_emd.py you have to modify the following:
 
 load the enrollment checkpoint for the link given here https://drive.google.com/file/d/109gOlv0FqV43eE7dr_1fpVIEFxtIqPy3/view?usp=drive_link
+
 Speaker_feat=<path_of_checkpoint>
 
 load the test checkpoint 
