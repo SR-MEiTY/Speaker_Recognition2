@@ -152,6 +152,10 @@ Step 4:After clicking into enrollment Need to enroll yourself with Name , Surnam
  Step 11:This step is specify whether the speaker is recognised or No
  ![image](https://github.com/SR-MEiTY/Speaker_Recognition2/assets/104900510/9f925f96-c797-43e8-aede-0a35ed06aa2f)
 
+    License
+    
+    This project is licensed under the NLTM License - see the LICENSE file for details.
+
 
 
 
