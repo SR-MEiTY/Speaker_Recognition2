@@ -108,22 +108,23 @@ Open terminal and type the following:
 
 Instructions to run the web app using Flask Server.
 1.Activate the environment of wavlM model using following source env/bin/activate this 
+
 2. Install Anaconda using the following link:
    
    https://www.anaconda.com/download
 3. Create a Virtual Environment in command prompt using 'conda create --name flaskenv python=3.8'
-4. Activate the environment using 'conda activate flaskenv'
-5. Install the dependencies using pip install '<package_name>' or 'conda install <package_name>'
+
+4. Install the dependencies using pip install '<package_name>' or 'conda install <package_name>'
    or
    Install dependencies from requirements.txt and any other dependencies shown while running the backend.py using
 
    pip install -r requirements.txt
-6. Download the trained model from link provided in the Enrollment section and put it in the root folder.
-7. Open the web app folder from the command prompt/terminal, activate the a environment, if not activated and run the server using 'python backend.py'
-8. sudo apt-get install libsndfile1
-9. This will run the web app.
-10. Open the webapp in the web browser using IP address and Port Number displayed on the terminal. (e.g. https://localhost:port_number/)
-11. Now you will be able to see a web application in the web browser and you can do registration and verification of the speaker.
+5. Download the trained model from link provided in the Enrollment section and put it in the root folder.
+6. Open the web app folder from the command prompt/terminal, activate the a environment, if not activated and run the server using 'python backend.py'
+7. sudo apt-get install libsndfile1
+8. This will run the web app.
+19. Open the webapp in the web browser using IP address and Port Number displayed on the terminal. (e.g. https://localhost:port_number/)
+10. Now you will be able to see a web application in the web browser and you can do registration and verification of the speaker.
 
 Demo screenshots for the enrollment and verification for WAVlm Model:
 
