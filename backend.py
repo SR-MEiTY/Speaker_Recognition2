@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Created on Thu Jul 21 16:24:13 2022
+Created on Jan 10, 2024, 11:36AM
 
 @author: Mrinmoy Bhattacharjee, Senior Project Engineer, IIT Dharwad
+@author: Swapnil Sontakke, Project Associate, IIIT Dharwad
 """
 
 from flask import Flask, render_template, request, make_response, flash, redirect
@@ -20,6 +21,7 @@ import io, zipfile, time
 from scipy.io import wavfile
 import librosa
 import requests
+import json
 warnings.filterwarnings('ignore')
 
 
@@ -594,7 +596,7 @@ def uploadVVAudio():
 			print(type(speaker_feat))
 			score=CosineSimilarity()(torch.mean(speaker_feat, dim=1), torch.mean(test_feat, dim=1))
 			print(score)
-			th = 0.93
+			th = 0.95
 			op=verify(score,th)
 			if op == 1:
 				#output = "Speaker Recognized"
@@ -625,6 +627,30 @@ def uploadVVAudio():
 		# else:
 		# 	return "-1"
 #################################################################################################
+
+
+@ app.route('/checkUser', methods = ['POST'])
+def checkUser():
+	if request.method == 'POST':
+		data = request.get_json();
+		speakerID = data['username'];
+
+		print("Speaker ID:", speakerID)
+		csv_file = open('static/speakerinfo.csv', "r");
+		reader = csv.reader(csv_file)
+		isFound = False
+		for row in reader:
+			if speakerID == row[4]:
+				isFound = True
+				break
+			else:
+				continue
+			print(isFound)
+		if isFound:
+			return "1"
+		else:
+			return "-1"
+
 
 
 if __name__ == '__main__':
