@@ -9,56 +9,37 @@ Python: 3.8 and higher
 Pip version: 2.2 and higher
 
 ------------------------------------------
-**Dataset Details**
-
-**Training data**:
-
-https://drive.google.com/drive/folders/1YcBY0SgO2ErnMcHrvTPnjFkENX0RUMyY
-
-**Enrollment data**:
-
-https://drive.google.com/drive/folders/1YcBY0SgO2ErnMcHrvTPnjFkENX0RUMyY
-
-**Testing Data**:
-
-**Public Test Data**
-
-https://drive.google.com/drive/folders/1n1zZYvx8rFw0vUy20vGFMLL-kQUbV3CB
-
-**Private Test Data**
-
-https://drive.google.com/drive/folders/1Nf71uLGaX0_QlZpzoFsmMwUOOixB-0S9
-
----------------------------------------------------------------------------------
 
 **1. DEPLOY THE SYSTEM GUI**
 
-   If you want to deploy the prebuilt Speaker Recognition System, follow the following steps:
-   Speaker Recognition System deployment and testing for WavlM Model
+If you want to deploy the prebuilt Speaker Recognition System, follow the following steps:
+Speaker Recognition System deployment and testing for WavlM Model
 
 Instructions to run the web app using Flask Server.
 
- 1.Install Virtualenv and mkvirtualenv
+ 1.Install Virtualenv 
  
  for windows:pip install virtualenvwrapper-win
 
  for Linux:pip install virtaulwrapper
 
- 2.Create and activate the environment of wavlM model using following source env/bin/activate
+ 2.Create mkvirtualenv flaskenv by default it will create environment else you can use the following line
+ 
+ 3.Activate the environment of pertrained model using following source env/bin/activate
 
- 3. Install dependencies from requirements.txt and any other dependencies shown while running the backend.py using pip install -r requirements.txt
+ 4. Install dependencies from requirements.txt and any other dependencies shown while running the backend.py using pip install -r requirements.txt
    
- 4. Download the trained model from link provided and put it in the root folder, use  the following link to download https://drive.google.com/file/d/109gOlv0FqV43eE7dr_1fpVIEFxtIqPy3/view?usp=drive_link.
+ 5. Download the trained model from link provided and put it in the root folder, use  the following link to download https://drive.google.com/file/d/109gOlv0FqV43eE7dr_1fpVIEFxtIqPy3/view?usp=drive_link.
    
- 5. Open the web app folder from the command prompt/terminal, activate the a environment, if not activated and run the server using 'python backend.py'
+ 6. Open the web app folder from the command prompt/terminal, activate the a environment, if not activated and run the server using 'python backend.py'
    
- 6. sudo apt-get install libsndfile1
+ 7. sudo apt-get install libsndfile1
    
- 7. This will run the web app.
+ 8. This will run the web app.
    
- 8. Open the webapp in the web browser using IP address and Port Number displayed on the terminal. (e.g. https://localhost:port_number/)
+ 9. Open the webapp in the web browser using IP address and Port Number displayed on the terminal. (e.g. https://localhost:port_number/)
    
- 9. Now you will be able to see a web application in the web browser and you can do registration and verification of the speaker.
+ 10. Now you will be able to see a web application in the web browser and you can do registration and verification of the speaker.
 
 Demo screenshots for the enrollment and verification for WAVlm Model:
 
