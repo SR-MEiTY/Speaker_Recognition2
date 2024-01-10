@@ -2,7 +2,7 @@
 *	This script has been generated for the "Speaker Recognition System"
 * The original author of the script is
 *	Swapnil S Sontakke, Project Associate, IIIT, Dharwad
-*	Year: May, 2022
+*	Year: January, 2024
 */
 
 /*Global variables to be used across all the functions in this file*/
@@ -182,15 +182,15 @@ function vstart()
 			mediaRecorder= new MediaRecorder(mediaStreamObj);
 			if(mediaRecorder.state == 'inactive')
 			{
-    		mediaRecorder.start();
+    			mediaRecorder.start();
 	       	console.log('Recording State Now: '+ mediaRecorder.state)
 	       	recordButton.disabled = true;
 	       	recordButton.style.backgroundColor = "grey";
-					recordButton.style.border = 'grey';
+			recordButton.style.border = 'grey';
 
 	       	stopRecording.disabled = false;
 	       	stopRecording.style.backgroundColor = "black";
-					stopRecording.style.border = 'black';
+			stopRecording.style.border = 'black';
        	
        		mediaRecorder.ondataavailable = function(ev)
   			{
@@ -202,8 +202,8 @@ function vstart()
 					'type':'audio/webm'
 					//'codecs': 'opus'
 				});
-  			console.log('Sending the recorded stream to the server: ')
-      	chunks = [];
+  				console.log('Sending the recorded stream to the server: ')
+      			chunks = [];
 				//audioURL = window.URL.createObjectURL(blob);		            
 				//audioSource.src = audioURL;
 				 //audioSource.preload = 'none';
@@ -219,29 +219,33 @@ function vstart()
 				request.onreadystatechange = function(){
 					// if(request.readyState === 4) {
 						console.log(request.response)
+						//output.innerHTML = 'Comparing the features...'
 						if(request.response == "1") {
-							output.innerHTML = 'The speaker is recognized successfully!!!'
-							output.style.color = 'green'
-							output.style.font = '15px Arial, sans-serif'
-							output.style.fontWeight = 'bold'
+							alert("The speaker is recognized successfully!!!")
+							output.innerHTML = ''
+							//output.innerHTML = 'The speaker is recognized successfully!!!'
+							//output.style.color = 'green'
+							//output.style.font = '15px Arial, sans-serif'
+							//output.style.fontWeight = 'bold'
 						}
 						else if (request.response == "0"){
-							output.innerHTML = 'The speaker does not recognized. Please try again...'
-							output.style.color = 'red'
-							output.style.font = '15px Arial, sans-serif'
-							output.style.fontWeight = 'bold'
+							alert("The speaker is recognized successfully!!!")
+							//output.innerHTML = 'The speaker does not recognized. Please try again...'
+							//output.style.color = 'red'
+							//output.style.font = '15px Arial, sans-serif'
+							//output.style.fontWeight = 'bold'
 						}
 						else if(request.response == "-1"){
 							alert('The speaker does not exist. Register First and then try...')
-							output.innerHTML = 'The speaker does not exist. Register First and then try...'
-							output.style.color = 'red'
-							output.style.font = '15px Arial, sans-serif'
-							output.style.fontWeight = 'bold'
+							//output.innerHTML = 'The speaker does not exist. Register First and then try...'
+							//output.style.color = 'red'
+							//output.style.font = '15px Arial, sans-serif'
+							//output.style.fontWeight = 'bold'
 						}
 						else {
-							output.innerHTML = 'Comparing the features...'
+							//output.innerHTML = 'Comparing the features...'
 							output.style.color = 'red'
-							output.style.font = '15px Arial, sans-serif'
+							output.style.font = '20px Arial, sans-serif'
 							output.style.fontWeight = 'bold'
 						}
 					// }
@@ -266,11 +270,11 @@ function vstart()
 /*Function to stop the verification audio recording*/
 function vstop()
 {
-	recordButton.disabled = false;
+	/*recordButton.disabled = false;
 	recordButton.style.backgroundColor = "black";
-	recordButton.style.border = 'black';
+	recordButton.style.border = 'black';*/
 
-  stopRecording.disabled = true;
+  	stopRecording.disabled = true;
 	stopRecording.style.backgroundColor = "grey";
 	stopRecording.style.border = 'grey';
 

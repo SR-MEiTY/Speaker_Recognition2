@@ -4,6 +4,8 @@
 		<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"/>
 		<meta name="mobile-web-app-capable" content="yes"/>
 		<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+		<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+		
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia|DynaPuff">
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -30,24 +32,53 @@
 			}
 
 			function start_recording(){
+				name = document.getElementById('speakerID').value;
 				if(document.getElementById('speakerID').value == '')
 					alert('Please enter the speakerID');
-				else{
+				else
+				{
+					document.getElementById('reg-lang').disabled = true;
 					vstart();
-					timer();	
+					timer();
 				}
 			}
 
 			function stop_recording(){
 				vstop();
+				document.getElementById('reg-lang').disabled = false;
 			}
 
 			function show_recording_menu(){
+				name = document.getElementById('speakerID').value;
+				
 				if (document.getElementById('speakerID').value==''){
 					window.alert('Enter speaker ID');
 					return;
 				}
-				document.getElementById('recording_menu').style.visibility='visible';
+				else
+				{
+					$.ajax({
+						method: "post",
+						data: JSON.stringify({"username":name}),
+						contentType:'application/json;charset=UTF-8',
+					   	url: "/checkUser",  
+					   	success: function(data) {
+					       	if (data == "1")
+					       	{
+					       		document.getElementById('recording_menu').style.visibility='visible';
+					       		document.getElementById('displayID').innerHTML= 'speakerID: '+name;
+					       		document.getElementById('displayID').style.fontSize='20px';
+					       		document.getElementById('displayID').style.textAlign = 'center'
+					       		document.getElementById('displayID').style.fontWeight = 'bold'
+					       	}
+					       	else
+					       	{
+					       		alert("User Not Found!");
+					       	} 
+					   	}
+					});
+				}
+				// document.getElementById('recording_menu').style.visibility='visible';
 			}
 
 			function hide_recording_menu(){
@@ -119,20 +150,20 @@
 				I-MSV Challenge
 			</div>
 			&emsp;
-			<div class="menu_items hyperlink" onclick="window.open('demo.html', '_self');">
+			<!-- <div class="menu_items hyperlink" onclick="window.open('demo.html', '_self');">
 				GMM Demo
 			</div>
 			&emsp;
             <div class="menu_items hyperlink" onclick="window.open('VOA.html', '_self');">
 				VOA Demo
-			</div>
+			</div> -->
 			&emsp;
 			<div class="menu_items hyperlink" onclick="window.open('hands_on.html', '_self');">
 				Hands-on
 			</div>
 			&emsp;
 			<div class="menu_items hyperlink selected_menu" onclick="window.open('demo_wavlm.html', '_self');">
-				Wavlm Demo
+				Speaker Verification Demo
 			</div>
 			<div class="empty_menu_item">
 			</div>
@@ -164,17 +195,19 @@
 					<div class="recording_buttons">
 						<div class="close_menu hyperlink" onclick="hide_recording_menu();">&#10060;</div>
 						<div class="heading2">Record audio</div>
-						<input type="button" class="button record_button" name="recordButton" id="recordButton" value="START" onclick="start_recording();">
-						<input type="button" class="button stop_button" name="stopRecording" id="stopRecording" value="STOP" onclick="stop_recording()">
+						<input type="button" class="button record_button" name="recordButton" id="recordButton" value="START" onclick="start_recording();" disabled>
+						<input type="button" class="button stop_button" name="stopRecording" id="stopRecording" value="STOP" onclick="stop_recording()" disabled>
 					</div>
 				</form>
+
+				<p class="displayID" id="displayID" name="displayID"></p>
 				<p class="timer" id="timer" name="timer">Not Recording.</p>
 
 				<br/>
 				
 				<div class="trow">
 					<label for="reg-lang">Select a Language for Verification:</label>
-					<select name="reg-lang" id="reg-lang" class="reg-lang" onchange="langSelect()" required>
+					<select name="reg-lang" id="reg-lang" class="reg-lang" onchange="langSelect()">
 						<option disabled selected>--Select a language--</option>
 						<option value="Bengali">Bengali</option>
 						<option value="English">English</option>
@@ -187,7 +220,7 @@
 
 				<section class="convertedText" id="convertedText" hidden>
 					<h4 style="text-align: center;">Read the following Text</h4>
-						The Indian Space Research Organisation is the national space agency of India. It operates as the primary research and 							development arm of the Department of Space (DoS)
+						The Indian Space Research Organisation is the national space agency of India. It operates as the primary research and development arm of the Department of Space (DoS)
 				</section>
 
 				<section class="bengali-lang" id="bengali-lang" hidden>

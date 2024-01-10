@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Created on Dec 21, 2023
+Created on Thu Jul 21 16:24:13 2022
 
-@author: IIIT Dharwad Team and IIT Dharwad Team
+@author: Mrinmoy Bhattacharjee, Senior Project Engineer, IIT Dharwad and Swapnil Sontakke, Project Associate, IIIT Dharwad
 """
 
 from flask import Flask, render_template, request, make_response, flash, redirect
@@ -595,7 +595,7 @@ def uploadVVAudio():
 			print(type(speaker_feat))
 			score=CosineSimilarity()(torch.mean(speaker_feat, dim=1), torch.mean(test_feat, dim=1))
 			print(score)
-			th = 0.95
+			th = 0.9
 			op=verify(score,th)
 			if op == 1:
 				#output = "Speaker Recognized"

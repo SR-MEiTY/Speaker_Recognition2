@@ -22,6 +22,8 @@ function langSelect()
 	var kannadaText = document.getElementById('kannada-lang');
 	var marathiText = document.getElementById('marathi-lang');
 	var teluguText = document.getElementById('telugu-lang');
+	var startButton = document.getElementById('recordButton');
+	var stopButton = document.getElementById('stopRecording');
 
 	if(option.value == 'Bengali')
 	{
@@ -32,6 +34,8 @@ function langSelect()
 		kannadaText.style.display = 'none';
 		marathiText.style.display = 'none';
 		teluguText.style.display = 'none';
+		startButton.disabled = false;
+		stopButton.disable = true;
 	}
 	else if(option.value == 'English')
 	{
@@ -42,6 +46,8 @@ function langSelect()
 		kannadaText.style.display = 'none';
 		marathiText.style.display = 'none';
 		teluguText.style.display = 'none';
+		startButton.disabled = false;
+		stopButton.disable = true;
 	}
 	else if(option.value == 'Hindi')
 	{
@@ -52,6 +58,8 @@ function langSelect()
 		kannadaText.style.display = 'none';
 		marathiText.style.display = 'none';
 		teluguText.style.display = 'none';
+		startButton.disabled = false;
+		stopButton.disable = true;
 	}
 	else if(option.value == 'Kannada')
 	{
@@ -62,6 +70,8 @@ function langSelect()
 		kannadaText.style.display = 'inline';
 		marathiText.style.display = 'none';
 		teluguText.style.display = 'none';
+		startButton.disabled = false;
+		stopButton.disable = true;
 	}
 	else if(option.value == 'Marathi')
 	{
@@ -72,6 +82,8 @@ function langSelect()
 		kannadaText.style.display = 'none';
 		marathiText.style.display = 'inline';
 		teluguText.style.display = 'none';
+		startButton.disabled = false;
+		stopButton.disable = true;
 	}
 	else if(option.value == 'Telugu')
 	{
@@ -82,9 +94,13 @@ function langSelect()
 		kannadaText.style.display = 'none';
 		marathiText.style.display = 'none';
 		teluguText.style.display = 'inline';
+		startButton.disabled = false;
+		stopButton.disable = true;
 	}
 	else
 	{
 		console.log('No option selected');
+		startButton.disabled = false;
+		stopButton.disable = false;
 	}
 }
