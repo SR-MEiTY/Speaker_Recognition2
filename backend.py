@@ -3,8 +3,7 @@
 """
 Created on Jan 10, 2024, 11:36AM
 
-@author: Mrinmoy Bhattacharjee, Senior Project Engineer, IIT Dharwad
-@author: Swapnil Sontakke, Project Associate, IIIT Dharwad
+@author: Mrinmoy Bhattacharjee, Senior Project Engineer, IIT Dharwad and Swapnil Sontakke, Project Associate, IIIT Dharwad
 """
 
 from flask import Flask, render_template, request, make_response, flash, redirect
