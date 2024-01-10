@@ -39,6 +39,10 @@ https://drive.google.com/drive/folders/1Nf71uLGaX0_QlZpzoFsmMwUOOixB-0S9
 Instructions to run the web app using Flask Server.
 
  1.Install Virtualenv and mkvirtualenv
+ 
+ for windows:pip install virtualenvwrapper-win
+
+ for Linux:pip install virtaulwrapper
 
  2.Create and activate the environment of wavlM model using following source env/bin/activate
 
