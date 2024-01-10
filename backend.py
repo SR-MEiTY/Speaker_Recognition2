@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Created on Jan 10, 2024, 11:36AM
+Created on Dec 21, 2023
 
-@author: Mrinmoy Bhattacharjee, Senior Project Engineer, IIT Dharwad and Swapnil Sontakke, Project Associate, IIIT Dharwad
+@author: IIIT Dharwad Team and IIT Dharwad Team
 """
 
 from flask import Flask, render_template, request, make_response, flash, redirect
