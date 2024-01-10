@@ -7,6 +7,7 @@ OS version: Ubuntu 20.04 LTS and higher
 Python: 3.8 and higher
 
 Pip version: 2.2 and higher
+
 ------------------------------------------
 **Dataset Details**
 
@@ -27,6 +28,7 @@ https://drive.google.com/drive/folders/1n1zZYvx8rFw0vUy20vGFMLL-kQUbV3CB
 **Private Test Data**
 
 https://drive.google.com/drive/folders/1Nf71uLGaX0_QlZpzoFsmMwUOOixB-0S9
+
 ---------------------------------------------------------------------------------
 
 **1. DEPLOY THE SYSTEM GUI**
