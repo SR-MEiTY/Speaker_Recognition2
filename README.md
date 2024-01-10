@@ -38,23 +38,23 @@ https://drive.google.com/drive/folders/1Nf71uLGaX0_QlZpzoFsmMwUOOixB-0S9
 
 Instructions to run the web app using Flask Server.
 
-1.Install Virtualenv and mkvirtualenv
+ 1.Install Virtualenv and mkvirtualenv
 
-2.Create and activate the environment of wavlM model using following source env/bin/activate
+ 2.Create and activate the environment of wavlM model using following source env/bin/activate
 
-3. Install dependencies from requirements.txt and any other dependencies shown while running the backend.py using pip install -r requirements.txt
+ 3. Install dependencies from requirements.txt and any other dependencies shown while running the backend.py using pip install -r requirements.txt
    
-4. Download the trained model from link provided and put it in the root folder, use  the following link to download https://drive.google.com/file/d/109gOlv0FqV43eE7dr_1fpVIEFxtIqPy3/view?usp=drive_link.
+ 4. Download the trained model from link provided and put it in the root folder, use  the following link to download https://drive.google.com/file/d/109gOlv0FqV43eE7dr_1fpVIEFxtIqPy3/view?usp=drive_link.
    
-5. Open the web app folder from the command prompt/terminal, activate the a environment, if not activated and run the server using 'python backend.py'
+ 5. Open the web app folder from the command prompt/terminal, activate the a environment, if not activated and run the server using 'python backend.py'
    
-6. sudo apt-get install libsndfile1
+ 6. sudo apt-get install libsndfile1
    
-7. This will run the web app.
+ 7. This will run the web app.
    
-8. Open the webapp in the web browser using IP address and Port Number displayed on the terminal. (e.g. https://localhost:port_number/)
+ 8. Open the webapp in the web browser using IP address and Port Number displayed on the terminal. (e.g. https://localhost:port_number/)
    
-9. Now you will be able to see a web application in the web browser and you can do registration and verification of the speaker.
+ 9. Now you will be able to see a web application in the web browser and you can do registration and verification of the speaker.
 
 Demo screenshots for the enrollment and verification for WAVlm Model:
 
