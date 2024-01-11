@@ -1,8 +1,5 @@
 firstName,lastName,gender,age,speakerID
 swapnil,sontakke,M,32,SSM32
-a,b,M,10,ABM10
-swapnil,sontakke,M,30,SSM30
-ganesh,bhosale,M,30,GBM30
 SAMART,FF,M,25,SFM25
 Deepak,K T,M,20,DKM20
 Deepak,K T,M,21,DKM21
@@ -13,12 +10,12 @@ Chetan,Khosla,M,51,CKM51
 Chetan,Khosla,M,50,CKM50
 Akhi,Shuk,M,35,ASM35
 nachiket,desai,M,34,NDM34
-Namita,Gokavi,F,30,NGF30
-supriya,Gokavi,F,30,SGF30
-pradyoth,B,M,27,PBM27
-Test1,Test1,M,32,TTM32
-Namita,G,F,33,NGF33
-swapnil,sonakate,M,32,SSM32
 ASHWINI ,C,F,30,ACF30
 SHANKAR,BIRADAR,M,35,SBM35
 SHWETA,SIDDANNAVAR,F,32,SSF32
+Shweta,Siddannavar,F,32,SSF32
+swapnil,sontakke,M,30,SSM30
+Ashwini,D,F,30,ADF30
+Namita,Gokavi,F,30,NGF30
+pradyoth,hegde,M,30,PHM30
+jeevitha,d,F,24,JDF24

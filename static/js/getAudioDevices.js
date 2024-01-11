@@ -229,7 +229,7 @@ function vstart()
 							//output.style.fontWeight = 'bold'
 						}
 						else if (request.response == "0"){
-							alert("The speaker is recognized successfully!!!")
+							alert('The speaker does not recognised')
 							//output.innerHTML = 'The speaker does not recognized. Please try again...'
 							//output.style.color = 'red'
 							//output.style.font = '15px Arial, sans-serif'
