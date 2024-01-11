@@ -52,20 +52,18 @@ Step3: Enrollment and verification Screen will Redirected
 Step 4:After clicking into enrollment Need to enroll yourself with Name , Surname and Gender and Age then start recording 
 ![4](https://github.com/SR-MEiTY/Speaker_Recognition2/assets/104900510/01eed03e-de32-43dc-84f2-e07cd8b2eb19)
  Step 5:After enrollment, the enrollment is done in English and testing can be done with multiple languages
- ![image](https://github.com/SR-MEiTY/Speaker_Recognition2/assets/104900510/62c4839e-963b-40fa-a601-78f872a8895d)
- Step6: After Recording for the enrolled voice is completed it will pop up a window like enrollment under progress.
+![5](https://github.com/SR-MEiTY/Speaker_Recognition2/assets/104900510/895d8d94-8579-4003-92a8-3ce8ea69ef16)
+ Step6: After Recording for the enrolled voice is completed it will pop up a window like enrollment under progress and enrolled speaker information will be save in the form of SSF32.
  ![image](https://github.com/SR-MEiTY/Speaker_Recognition2/assets/104900510/44740a78-51e2-4842-9830-54071114cc64)
- Step7:Enrolled speaker Information Will be saved in the form of NGF33
- ![image](https://github.com/SR-MEiTY/Speaker_Recognition2/assets/104900510/2b9f941f-d3fb-4444-a734-54752122d40c)
- Step8: Go back to the home page and click on verification for the enrolled speaker or the different speaker for the verification process.
- ![image](https://github.com/SR-MEiTY/Speaker_Recognition2/assets/104900510/34be2636-d029-4587-b755-e56366b5475b)
- Step 9: Need to provide the Enrolled speaker ID and start the recording 
- ![image](https://github.com/SR-MEiTY/Speaker_Recognition2/assets/104900510/41435b08-291c-4190-8564-d186bab03340)
- Step 10: Next step is the select the language you will get multiple languages, for example here we are providing kannada language input and will compare the features of input and output and provided 
+ Step7: Go back to the home page and click on verification for the enrolled speaker or the different speaker for the verification process.
+  ![8](https://github.com/SR-MEiTY/Speaker_Recognition2/assets/104900510/b1a90db2-83ca-4590-b55d-92898aa5699c)
+ Step 8: Need to provide the Enrolled speaker ID and start the recording 
+ ![9](https://github.com/SR-MEiTY/Speaker_Recognition2/assets/104900510/9bc7a73a-c840-451d-a1d2-40570d3eea49)
+ Step 9: Next step is the select the language you will get multiple languages, for example here we are providing kannada language input and will compare the features of input and output and provided 
  whether it matched or no is provided in next step.
- ![image](https://github.com/SR-MEiTY/Speaker_Recognition2/assets/104900510/a073307a-e99f-437b-b36a-727bd8e5175c)
- Step 11:This step is specify whether the speaker is recognised or No
- ![image](https://github.com/SR-MEiTY/Speaker_Recognition2/assets/104900510/9f925f96-c797-43e8-aede-0a35ed06aa2f)
+ ![10](https://github.com/SR-MEiTY/Speaker_Recognition2/assets/104900510/aee006f6-bc69-46f4-bdcf-581c36c76ee9)
+Step 11:This step is specify whether the speaker is recognised or No
+ ![12](https://github.com/SR-MEiTY/Speaker_Recognition2/assets/104900510/521b47ec-90b7-4590-854f-9d4c38b7dc41)
 
 ** License**
     
