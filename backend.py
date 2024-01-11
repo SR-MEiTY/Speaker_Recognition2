@@ -595,7 +595,7 @@ def uploadVVAudio():
 			print(type(speaker_feat))
 			score=CosineSimilarity()(torch.mean(speaker_feat, dim=1), torch.mean(test_feat, dim=1))
 			print(score)
-			th = 0.9
+			th = 0.94
 			op=verify(score,th)
 			if op == 1:
 				#output = "Speaker Recognized"
