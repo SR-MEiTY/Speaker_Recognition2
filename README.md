@@ -54,7 +54,7 @@ Step 4:After clicking into enrollment Need to enroll yourself with Name , Surnam
  Step 5:After enrollment, the enrollment is done in English and testing can be done with multiple languages
 ![5](https://github.com/SR-MEiTY/Speaker_Recognition2/assets/104900510/895d8d94-8579-4003-92a8-3ce8ea69ef16)
  Step6: After Recording for the enrolled voice is completed it will pop up a window like enrollment under progress and enrolled speaker information will be save in the form of SSF32.
- ![image](https://github.com/SR-MEiTY/Speaker_Recognition2/assets/104900510/44740a78-51e2-4842-9830-54071114cc64)
+ ![6](https://github.com/SR-MEiTY/Speaker_Recognition2/assets/104900510/d2ede031-fbe1-4877-8eb1-d00e29caa267)
 Step7: Go back to the home page and click on Speaker verification Demo then later it will redirect to enrollment and verification later need to click on verification for the enrolled speaker or the different speaker for the verification process.
   ![8](https://github.com/SR-MEiTY/Speaker_Recognition2/assets/104900510/b1a90db2-83ca-4590-b55d-92898aa5699c)
  Step 8: Need to provide the Enrolled speaker ID and start the recording 
