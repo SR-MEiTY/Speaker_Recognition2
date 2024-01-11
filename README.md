@@ -37,7 +37,7 @@ Instructions to run the web app using Flask Server.
    
  8. This will run the web app.
    
- 9. Open the webapp in the web browser using IP address and Port Number displayed on the terminal. (e.g. https://localhost:port_number/)
+ 9. Open the webapp in the web browser using IP address and Port Number displayed on the terminal. (e.g. https://203.129.246.105:6060/)
    
  10. Now you will be able to see a web application in the web browser and you can do registration and verification of the speaker.
 
