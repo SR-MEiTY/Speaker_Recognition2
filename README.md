@@ -44,13 +44,13 @@ Instructions to run the web app using Flask Server.
 Demo screenshots for the enrollment and verification for WAVlm Model:
 
 Step1: Entering the IP address  https://203.129.246.105:6060/ the below home page will get browsered Page
-![image](https://github.com/SR-MEiTY/Speaker_Recognition2/assets/104900510/bbaf650c-a2d6-4e16-851a-05cf042796f8)
-Step2:Click on the WavLm Demo on the Option
-![image](https://github.com/SR-MEiTY/Speaker_Recognition2/assets/104900510/3c44a6f9-aeb2-44ed-9a50-84b34dbc2f58)
+![1](https://github.com/SR-MEiTY/Speaker_Recognition2/assets/104900510/f17ca5ef-facf-457e-b779-00745be69c0f)
+Step2:Click on the Speaker Verification Demo on the Option
+![2](https://github.com/SR-MEiTY/Speaker_Recognition2/assets/104900510/3de4911b-01ed-4600-8bb8-f4ff523f26dd)
 Step3: Enrollment and verification Screen will Redirected
-![image](https://github.com/SR-MEiTY/Speaker_Recognition2/assets/104900510/23ab41b0-9318-4912-b045-dcf9b3b39cff)
+![3](https://github.com/SR-MEiTY/Speaker_Recognition2/assets/104900510/cf551f12-5c77-4e1f-9d4b-1a5584f3e855)
 Step 4:After clicking into enrollment Need to enroll yourself with Name , Surname and Gender and Age then start recording 
-![image](https://github.com/SR-MEiTY/Speaker_Recognition2/assets/104900510/1f71d064-1e52-4569-b7f4-21f1b1e3e54b)
+![4](https://github.com/SR-MEiTY/Speaker_Recognition2/assets/104900510/01eed03e-de32-43dc-84f2-e07cd8b2eb19)
  Step 5:After enrollment, the enrollment is done in English and testing can be done with multiple languages
  ![image](https://github.com/SR-MEiTY/Speaker_Recognition2/assets/104900510/62c4839e-963b-40fa-a601-78f872a8895d)
  Step6: After Recording for the enrolled voice is completed it will pop up a window like enrollment under progress.
