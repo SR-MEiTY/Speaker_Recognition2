@@ -37,110 +37,33 @@ Instructions to run the web app using Flask Server.
    
  8. This will run the web app.
    
- 9. Open the webapp in the web browser using IP address and Port Number displayed on the terminal. (e.g. https://localhost:port_number/)
+ 9. Open the webapp in the web browser using IP address and Port Number displayed on the terminal. (e.g. https://203.129.246.105:6060/)
    
  10. Now you will be able to see a web application in the web browser and you can do registration and verification of the speaker.
 
 Demo screenshots for the enrollment and verification for WAVlm Model:
 
 Step1: Entering the IP address  https://203.129.246.105:6060/ the below home page will get browsered Page
-![image](https://github.com/SR-MEiTY/Speaker_Recognition2/assets/104900510/bbaf650c-a2d6-4e16-851a-05cf042796f8)
-Step2:Click on the WavLm Demo on the Option
-![image](https://github.com/SR-MEiTY/Speaker_Recognition2/assets/104900510/3c44a6f9-aeb2-44ed-9a50-84b34dbc2f58)
+![1](https://github.com/SR-MEiTY/Speaker_Recognition2/assets/104900510/f17ca5ef-facf-457e-b779-00745be69c0f)
+Step2:Click on the Speaker Verification Demo on the Option
+![2](https://github.com/SR-MEiTY/Speaker_Recognition2/assets/104900510/3de4911b-01ed-4600-8bb8-f4ff523f26dd)
 Step3: Enrollment and verification Screen will Redirected
-![image](https://github.com/SR-MEiTY/Speaker_Recognition2/assets/104900510/23ab41b0-9318-4912-b045-dcf9b3b39cff)
+![3](https://github.com/SR-MEiTY/Speaker_Recognition2/assets/104900510/cf551f12-5c77-4e1f-9d4b-1a5584f3e855)
 Step 4:After clicking into enrollment Need to enroll yourself with Name , Surname and Gender and Age then start recording 
-![image](https://github.com/SR-MEiTY/Speaker_Recognition2/assets/104900510/1f71d064-1e52-4569-b7f4-21f1b1e3e54b)
+![4](https://github.com/SR-MEiTY/Speaker_Recognition2/assets/104900510/01eed03e-de32-43dc-84f2-e07cd8b2eb19)
  Step 5:After enrollment, the enrollment is done in English and testing can be done with multiple languages
- ![image](https://github.com/SR-MEiTY/Speaker_Recognition2/assets/104900510/62c4839e-963b-40fa-a601-78f872a8895d)
- Step6: After Recording for the enrolled voice is completed it will pop up a window like enrollment under progress.
+![5](https://github.com/SR-MEiTY/Speaker_Recognition2/assets/104900510/895d8d94-8579-4003-92a8-3ce8ea69ef16)
+ Step6: After Recording for the enrolled voice is completed it will pop up a window like enrollment under progress and enrolled speaker information will be save in the form of SSF32.
  ![image](https://github.com/SR-MEiTY/Speaker_Recognition2/assets/104900510/44740a78-51e2-4842-9830-54071114cc64)
- Step7:Enrolled speaker Information Will be saved in the form of NGF33
- ![image](https://github.com/SR-MEiTY/Speaker_Recognition2/assets/104900510/2b9f941f-d3fb-4444-a734-54752122d40c)
- Step8: Go back to the home page and click on verification for the enrolled speaker or the different speaker for the verification process.
- ![image](https://github.com/SR-MEiTY/Speaker_Recognition2/assets/104900510/34be2636-d029-4587-b755-e56366b5475b)
- Step 9: Need to provide the Enrolled speaker ID and start the recording 
- ![image](https://github.com/SR-MEiTY/Speaker_Recognition2/assets/104900510/41435b08-291c-4190-8564-d186bab03340)
- Step 10: Next step is the select the language you will get multiple languages, for example here we are providing kannada language input and will compare the features of input and output and provided 
+Step7: Go back to the home page and click on Speaker verification Demo then later it will redirect to enrollment and verification later need to click on verification for the enrolled speaker or the different speaker for the verification process.
+  ![8](https://github.com/SR-MEiTY/Speaker_Recognition2/assets/104900510/b1a90db2-83ca-4590-b55d-92898aa5699c)
+ Step 8: Need to provide the Enrolled speaker ID and start the recording 
+ ![9](https://github.com/SR-MEiTY/Speaker_Recognition2/assets/104900510/9bc7a73a-c840-451d-a1d2-40570d3eea49)
+ Step 9: Next step is the select the language you will get multiple languages, for example here we are providing kannada language input and will compare the features of input and output and provided 
  whether it matched or no is provided in next step.
- ![image](https://github.com/SR-MEiTY/Speaker_Recognition2/assets/104900510/a073307a-e99f-437b-b36a-727bd8e5175c)
- Step 11:This step is specify whether the speaker is recognised or No
- ![image](https://github.com/SR-MEiTY/Speaker_Recognition2/assets/104900510/9f925f96-c797-43e8-aede-0a35ed06aa2f)
-
-
-
-   
-The Speaker Recognition system can be trained and a custom model can be built using the dataset. The process to build a new model is as follows:
-   
-   **a. Enrollment**
-   
-   In Speaker_Recognition2/referenceFiles/extract_enrol_emd.py you have to modify the following:
-
-load the enrollment checkpoint for the link given here https://drive.google.com/file/d/109gOlv0FqV43eE7dr_1fpVIEFxtIqPy3/view?usp=drive_link
-
-Speaker_feat=<path_of_checkpoint>
-
-load the test checkpoint 
-testset = test_dataset_loader(<path_for_test_feat>)
-    
-save the model to a new location using 
-torch.save(<speaker_feat,path>)
-
-Open terminal and type the following:
-python3 extract_enrol_emd.py
-
-   **b. Testing**
-   
-   In Speaker_Recognition2/referenceFiles/extract_test_emd.py you have to modify the following:
-
- load the checkpoint using
- a = torch.load(<path_of_the_checkpoint>)
-
- load the path of test data
-testset = test_dataset_loader(<provide_the_path>)
-   
- save the model to a new location
-torch.save(<provide_the_path>)
-
-Open terminal and type the following:
-python3 extract_test_emd.py
-
-   **c. Score Calculation**
-    
-In Speaker_Recognition2/referenceFiles/score.py you have to modify the following:
-
-load the enrollment checkpoint
-speaker_feat=torch.load(<Path_of_the_checkpoint>)
-
-load the test checkpoint
-test_feat=torch.load(<Path_of_the_test_checkpoint>)
-
-provide the path for cohart.csv file
-speaker_id=pd.read_csv(<Path_of_the_CSV_file>)
-
- provide the path for the test data folder
-test_key =os.path.join(<Path_of_the_Test_Data_Folder>)
-
- save the results.csv file to a new location
-p.to_csv(<Path_to_Save_the_Results>)
-
-Open terminal and type the following:
-
-python3 score.py
-
-**d.Calculate The EER**
-
-In performance.sh file you need to modify the following:
-
-python evaluation.py --groundtruth give the path of cohart.csv file --prediction give the path of results.csv file which you obtain from the score.py
-
-Open terminal and type the following:
-./performance.sh
-
---------------------------------------------------------------------------------------------------------------------------------------
-
-
-
+ ![10](https://github.com/SR-MEiTY/Speaker_Recognition2/assets/104900510/aee006f6-bc69-46f4-bdcf-581c36c76ee9)
+Step 11:This step is specify whether the speaker is recognised or No
+ ![12](https://github.com/SR-MEiTY/Speaker_Recognition2/assets/104900510/521b47ec-90b7-4590-854f-9d4c38b7dc41)
 
 ** License**
     
