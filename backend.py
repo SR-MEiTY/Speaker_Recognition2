@@ -436,12 +436,14 @@ def uploadTTAudio():
 		file_name = speakerID + ".wav"
 		full_file_name = os.path.join(TRAIN_FOLDER+speakerID, file_name)
 		file.save(full_file_name)
-		audio_binary_data = file.read()
+		# audio_binary_data = file.read()
 
 		# With Somashekhar
 		
 		audiodata = AudioSegment.from_file(full_file_name)
+		audiodata = audiodata.set_frame_rate(16000)
 		audio = audiodata.get_array_of_samples()
+
 		sample_rate = audiodata.frame_rate
 
 		path2str  = "static/train_data/"  
@@ -532,7 +534,7 @@ def uploadVVAudio():
 			sr=8000
 			wavfilepath=path2str+id+ '/'+id+'.wav'
 
-			max_frames = 500
+		max_frames = 500
 		evalmode=True
 		num_eval=10
 		
@@ -545,12 +547,16 @@ def uploadVVAudio():
 		#print("done====")
 
 		audiodata = AudioSegment.from_file(full_file_name)
+		audiodata = audiodata.set_frame_rate(16000)
 		audio = audiodata.get_array_of_samples()
 		sample_rate = audiodata.frame_rate
+		print(sample_rate)
 
 		#audiosize = audio.shape[0]
 		audiosize   = len(audio)
-		
+		print(audiosize)
+		print(max_audio)
+
 		if audiosize <= max_audio:
 		    shortage    = max_audio - audiosize + 1 
 		    audio       = np.pad(audio, (0, shortage), 'wrap')
@@ -587,6 +593,9 @@ def uploadVVAudio():
 			#enrol_embd = path2enrol+id+'/'+id+".pth"
 			#auth_embd = path2str+id+'/'+id+".pth"
 
+			print(path2enrol)
+			print(path2str)
+
 			speaker_feat=torch.load(path2enrol+id+'/'+id+".pth")
 			test_feat=torch.load(path2str+id+'/'+id+".pth")
 			print("Printing")
@@ -595,7 +604,7 @@ def uploadVVAudio():
 			print(type(speaker_feat))
 			score=CosineSimilarity()(torch.mean(speaker_feat, dim=1), torch.mean(test_feat, dim=1))
 			print(score)
-			th = 0.93
+			th = 0.5
 			op=verify(score,th)
 			if op == 1:
 				#output = "Speaker Recognized"
