@@ -145,7 +145,7 @@ function tstart()
 /*Function to stop the audio recording*/
 function tstop()
 {
-		recordButton.disabled = false;
+		recordButton.disabled = true;
 		recordButton.style.backgroundColor = "black";
 		recordButton.style.border = 'black';
 

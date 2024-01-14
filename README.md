@@ -19,9 +19,9 @@ Instructions to run the web app using Flask Server.
 
  1.Install Virtualenv 
  
- for windows:pip install virtualenvwrapper-win
+ for windows:pip install virtualenv virtualenvwrapper-win
 
- for Linux:pip install virtaulwrapper
+ for Linux:pip install virtualenv virtaulwrapper
 
  2.Create mkvirtualenv flaskenv by default it will create environment else you can use the following line
  
